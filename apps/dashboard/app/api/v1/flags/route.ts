@@ -8,7 +8,7 @@ import { COLLECTIONS } from '@/lib/firestore';
 const requestSchema = z.object({
   user: z.object({
     id: z.string().optional(),
-    attributes: z.record(z.any()).optional(),
+    attributes: z.record(z.string(), z.any()).optional(),
   }).optional(),
 });
 
