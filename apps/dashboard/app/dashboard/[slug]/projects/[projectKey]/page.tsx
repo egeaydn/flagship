@@ -5,7 +5,7 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth, db } from '@/lib/firebase';
 import { useRouter, useParams } from 'next/navigation';
 import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore';
-import { COLLECTIONS, createFeatureFlag } from '@/lib/firestore';
+import { COLLECTIONS, createFeatureFlag, createAuditLog } from '@/lib/firestore';
 
 interface Project {
   id: string;
@@ -152,19 +152,40 @@ export default function ProjectPage() {
   };
 
   const toggleFlag = async (flagId: string, currentValue: boolean) => {
-    if (!selectedEnv) return;
+    if (!selectedEnv || !user || !project) return;
 
     try {
       const flagValue = flagValues.find(fv => fv.flagId === flagId && fv.environmentId === selectedEnv);
+      const flag = flags.find(f => f.id === flagId);
       
-      if (flagValue) {
+      if (flagValue && flag) {
+        const newValue = !currentValue;
+        
+        // Update flag value
         await updateDoc(doc(db, COLLECTIONS.FLAG_VALUES, flagValue.id), {
-          enabled: !currentValue,
+          enabled: newValue,
           updatedAt: new Date(),
+        });
+        
+        // Create audit log
+        await createAuditLog({
+          organizationId: project.organizationId,
+          projectId: project.id,
+          environmentId: selectedEnv,
+          userId: user.uid,
+          userEmail: user.email || 'unknown',
+          action: newValue ? 'FLAG_ENABLED' : 'FLAG_DISABLED',
+          resourceType: 'flag',
+          resourceId: flagId,
+          resourceName: flag.name,
+          changes: {
+            before: { enabled: currentValue },
+            after: { enabled: newValue }
+          }
         });
       }
       
-      await loadFlags(project!.id);
+      await loadFlags(project.id);
     } catch (error) {
       console.error('Error toggling flag:', error);
     }

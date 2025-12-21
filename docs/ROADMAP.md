@@ -6,12 +6,12 @@ Bu dokuman, Feature Flags platformunun sıfırdan production-ready MVP'ye kadar 
 
 **Toplam Süre Tahmini:** 4-6 hafta (tek geliştirici)
 
-## Phase 1: Project Setup & Infrastructure (Week 1)
+## Phase 1: Project Setup & Infrastructure (Week 1) ✅
 
 ### Day 1-2: Repository & Monorepo Setup
 
-- [ ] GitHub repository oluştur
-- [ ] Monorepo yapısını kur (pnpm workspaces)
+- [x] GitHub repository oluştur
+- [x] Monorepo yapısını kur (pnpm workspaces)
   ```bash
   mkdir flagship && cd flagship
   pnpm init
@@ -71,11 +71,11 @@ Bu dokuman, Feature Flags platformunun sıfırdan production-ready MVP'ye kadar 
 
 ---
 
-## Phase 2: Core Backend (Week 2)
+## Phase 2: Core Backend (Week 2) ✅
 
 ### Day 8-9: Organizations & Projects CRUD
 
-- [ ] Dashboard: Organizations page
+- [x] Dashboard: Organizations page
   - List organizations
   - Create organization modal
   - Select active organization (Zustand state)
@@ -122,11 +122,11 @@ Bu dokuman, Feature Flags platformunun sıfırdan production-ready MVP'ye kadar 
 
 ---
 
-## Phase 3: Public API (Week 3)
+## Phase 3: Public API (Week 3) ✅
 
 ### Day 15-16: API Key Management
 
-- [ ] API key generation logic
+- [x] API key generation logic
   - `createApiKey(envId, name, type)`
   - bcrypt hashing
   - prefix for fast lookup
@@ -173,11 +173,11 @@ Bu dokuman, Feature Flags platformunun sıfırdan production-ready MVP'ye kadar 
 
 ---
 
-## Phase 4: SDK Development (Week 4)
+## Phase 4: SDK Development (Week 4) ✅
 
 ### Day 22-23: Core SDK Package
 
-- [ ] Create `packages/sdk`
+- [x] Create `packages/sdk`
 - [ ] Package setup (TypeScript, tsup bundler)
 - [ ] Core client implementation
   - `createClient(config)`
@@ -230,10 +230,10 @@ Bu dokuman, Feature Flags platformunun sıfırdan production-ready MVP'ye kadar 
 
 ## Phase 5: Dashboard Polish (Week 5)
 
-### Day 28-29: Rule Editor UI
+### Day 28-29: Rule Editor UI ✅
 
-- [ ] Dashboard: Flag detail page
-- [ ] Rule builder component
+- [x] Dashboard: Flag detail page
+- [x] Rule builder component
   - Add rule button
   - Rule type selector (role / attribute / percentage)
   - Rule form fields (dynamic based on type)

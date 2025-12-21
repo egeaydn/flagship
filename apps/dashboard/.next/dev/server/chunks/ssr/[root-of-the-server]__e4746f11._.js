@@ -163,6 +163,8 @@ __turbopack_context__.s([
     ()=>createOrganization,
     "createProject",
     ()=>createProject,
+    "getAuditLogs",
+    ()=>getAuditLogs,
     "getEnvironmentApiKeys",
     ()=>getEnvironmentApiKeys,
     "getUserOrganizations",
@@ -308,8 +310,23 @@ async function getEnvironmentApiKeys(environmentId) {
 async function createAuditLog(data) {
     return await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firebase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["db"], COLLECTIONS.AUDIT_LOGS), {
         ...data,
+        timestamp: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["serverTimestamp"])(),
         createdAt: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["serverTimestamp"])()
     });
+}
+async function getAuditLogs(organizationId, limit = 100) {
+    const logsQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firebase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["db"], COLLECTIONS.AUDIT_LOGS), (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["where"])('organizationId', '==', organizationId));
+    const snapshot = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getDocs"])(logsQuery);
+    const logs = snapshot.docs.map((doc)=>({
+            id: doc.id,
+            ...doc.data()
+        }));
+    // Sort by timestamp descending (newest first)
+    return logs.sort((a, b)=>{
+        const aTime = a.timestamp?.toMillis() || a.createdAt?.toMillis() || 0;
+        const bTime = b.timestamp?.toMillis() || b.createdAt?.toMillis() || 0;
+        return bTime - aTime;
+    }).slice(0, limit);
 }
 }),
 "[project]/Desktop/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {

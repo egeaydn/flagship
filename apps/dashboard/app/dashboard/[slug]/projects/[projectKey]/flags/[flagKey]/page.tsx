@@ -4,7 +4,9 @@ import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { doc, getDoc, collection, query, where, getDocs, updateDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
-import { COLLECTIONS } from '@/lib/firestore';
+import { COLLECTIONS, createAuditLog } from '@/lib/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
 
 interface TargetingCondition {
   attribute: string;
@@ -33,6 +35,7 @@ interface Targeting {
 export default function FlagDetailPage() {
   const params = useParams();
   const router = useRouter();
+  const [user, setUser] = useState<any>(null);
   const [flag, setFlag] = useState<any>(null);
   const [environments, setEnvironments] = useState<any[]>([]);
   const [selectedEnv, setSelectedEnv] = useState<string>('');
@@ -47,6 +50,13 @@ export default function FlagDetailPage() {
       value: true
     }
   });
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     loadData();
@@ -136,12 +146,31 @@ export default function FlagDetailPage() {
   }
 
   async function saveTargeting() {
-    if (!flagValue) return;
+    if (!flagValue || !user || !flag) return;
     
     try {
+      const oldTargeting = flagValue.targeting;
+      
       await updateDoc(doc(db, COLLECTIONS.FLAG_VALUES, flagValue.id), {
         targeting: targeting,
         updatedAt: new Date(),
+      });
+      
+      // Create audit log
+      await createAuditLog({
+        organizationId: flag.organizationId || '',
+        projectId: flag.projectId,
+        environmentId: selectedEnv,
+        userId: user.uid,
+        userEmail: user.email || 'unknown',
+        action: 'TARGETING_RULES_UPDATED',
+        resourceType: 'flag',
+        resourceId: flag.id,
+        resourceName: flag.name,
+        changes: {
+          before: oldTargeting,
+          after: targeting
+        }
       });
       
       alert('Targeting rules saved!');

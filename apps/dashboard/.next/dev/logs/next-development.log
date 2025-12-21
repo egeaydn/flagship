@@ -1,1 +1,442 @@
-[00:00:01.118] Server  LOG      ✓ Ready in 787ms
+[00:00:02.239] Server  LOG      ✓ Ready in 1577ms
+[00:00:08.019] Server  ERROR    ⨯ ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+
+[00:00:09.090] Server  ERROR   Node.js fs rename failed after 101 retries with error Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\flagship\apps\dashboard\.next\dev\server\middleware-build-manifest.js.tmp.ffkzjtfigp' -> 'C:\Users\tr\Desktop\flagship\apps\dashboard\.next\dev\server\middleware-build-manifest.js'
+[00:00:09.099] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\shared\lib\turbopack\utils.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.101] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\dev\turbopack-utils.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.105] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\dev\hot-reloader-turbopack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.106] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.113] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\lib\dev-bundler-service.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.115] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.117] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\route-matcher-managers\dev-route-matcher-manager.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.118] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\route-matcher-managers\default-route-matcher-manager.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.120] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.126] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.127] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.128] Server  ERROR   C:\Users\tr\Desktop\flagship\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:09.130] Server  ERROR   ModuleBuildError: ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+
+[00:00:09.516] Server  WARN    Could not find files for /_error in .next/build-manifest.json
+[00:00:09.523] Server  WARN    Could not find files for /_error in .next/build-manifest.json
+[00:00:14.022] Server  ERROR    ⨯ ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+
+[00:00:14.029] Server  WARN    Could not find files for /_error in .next/build-manifest.json
+[00:00:14.030] Server  WARN    Could not find files for /_error in .next/build-manifest.json
+[00:00:14.708] Server  ERROR    ⨯ ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+
+[00:00:14.718] Server  WARN    Could not find files for /_error in .next/build-manifest.json
+[00:00:14.719] Server  WARN    Could not find files for /_error in .next/build-manifest.json
+[00:00:20.300] Server  ERROR    ⨯ ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Server Component]
+
+
+[00:00:20.481] Browser ERROR   uncaughtError: Error: ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+
+[00:00:20.718] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+[00:00:20.983] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+[00:00:20.983] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Server Component]
+[00:00:24.300] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+[00:00:24.300] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Server Component]
+[00:00:24.732] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+[00:00:24.732] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+[00:00:24.732] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+[00:00:36.152] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+[00:00:36.153] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/page.tsx [Server Component]
+[00:00:36.153] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/Desktop/f...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           style={{overflow-x:"hidden",overflow-y:"hidden"}}
+                          >
+                  ...
+
+[00:00:36.153] Browser ERROR   ./Desktop/flagship/apps/dashboard/lib/firestore.ts:201:8
+Parsing ecmascript source code failed
+  199 |   organizationId: string;
+  200 | // Audit Log functions (enhanced)
+> 201 | export async function createAuditLog(data: {
+      |        ^^^^^
+  202 |   organizationId?: string;
+  203 |   projectId?: string;
+  204 |   environmentId?: string;
+
+Expected ';', got 'async'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component Browser]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/flagship/apps/dashboard/lib/firestore.ts [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Client Component SSR]
+    ./Desktop/flagship/apps/dashboard/app/dashboard/[slug]/audit-logs/page.tsx [Server Component]
+[00:00:48.343] Server  LOG      ✓ Compiled in 153ms

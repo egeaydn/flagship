@@ -194,21 +194,49 @@ export async function getEnvironmentApiKeys(environmentId: string) {
   return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
-// Audit log function
+// Audit Log functions (enhanced)
 export async function createAuditLog(data: {
-  organizationId: string;
+  organizationId?: string;
   projectId?: string;
   environmentId?: string;
   userId: string;
+  userEmail?: string;
   action: string;
+  targetType?: string;  // kept for backward compatibility
   resourceType: string;
   resourceId: string;
-  changes?: any;
+  resourceName?: string;
+  changes?: {
+    before?: any;
+    after?: any;
+  };
+  metadata?: Record<string, any>;
   ipAddress?: string;
   userAgent?: string;
 }) {
   return await addDoc(collection(db, COLLECTIONS.AUDIT_LOGS), {
     ...data,
+    timestamp: serverTimestamp(),
     createdAt: serverTimestamp(),
   });
+}
+
+export async function getAuditLogs(organizationId: string, limit: number = 100) {
+  const logsQuery = query(
+    collection(db, COLLECTIONS.AUDIT_LOGS),
+    where('organizationId', '==', organizationId)
+  );
+  
+  const snapshot = await getDocs(logsQuery);
+  const logs = snapshot.docs.map(doc => ({ 
+    id: doc.id, 
+    ...doc.data() 
+  }));
+  
+  // Sort by timestamp descending (newest first)
+  return logs.sort((a: any, b: any) => {
+    const aTime = a.timestamp?.toMillis() || a.createdAt?.toMillis() || 0;
+    const bTime = b.timestamp?.toMillis() || b.createdAt?.toMillis() || 0;
+    return bTime - aTime;
+  }).slice(0, limit);
 }
