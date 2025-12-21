@@ -2,6 +2,7 @@
 
 import { createClient } from '@flagship/sdk';
 import { FlagshipProvider, useFlag, useFlags } from '@flagship/sdk-react';
+import { useEffect, useState } from 'react';
 
 const client = createClient({
   apiKey: process.env.NEXT_PUBLIC_FLAGSHIP_API_KEY!,
@@ -10,10 +11,24 @@ const client = createClient({
 
 function DemoContent() {
   const { flags, loading, error, refresh } = useFlags();
+  const [autoRefresh, setAutoRefresh] = useState(false);
+  const [refreshCount, setRefreshCount] = useState(0);
   
   // Example flags
   const newFeature = useFlag('recep-tayyip-erdogan', false);
   const betaFeature = useFlag('gursel-tekin', false);
+
+  // Auto-refresh for testing analytics
+  useEffect(() => {
+    if (autoRefresh) {
+      const interval = setInterval(() => {
+        refresh();
+        setRefreshCount(prev => prev + 1);
+      }, 3000); // Every 3 seconds
+      
+      return () => clearInterval(interval);
+    }
+  }, [autoRefresh, refresh]);
 
   if (loading) {
     return <div className="loading">🚀 Loading feature flags...</div>;
@@ -82,11 +97,42 @@ function DemoContent() {
         <div className="card">
           <h2>⚙️ Control Panel</h2>
           <p>Manage your feature flags in real-time.</p>
-          <button className="button" onClick={refresh}>
-            🔄 Refresh Flags
-          </button>
+          
+          <div style={{ display: 'flex', gap: '0.5rem', flexDirection: 'column' }}>
+            <button className="button" onClick={refresh}>
+              🔄 Refresh Flags Now
+            </button>
+            
+            <button 
+              className="button" 
+              onClick={() => setAutoRefresh(!autoRefresh)}
+              style={{ 
+                background: autoRefresh ? '#dc3545' : '#28a745',
+                borderColor: autoRefresh ? '#dc3545' : '#28a745'
+              }}
+            >
+              {autoRefresh ? '⏸️ Stop Auto-Refresh' : '▶️ Start Auto-Refresh'}
+            </button>
+          </div>
+          
+          {autoRefresh && (
+            <div style={{ 
+              marginTop: '1rem', 
+              padding: '0.75rem', 
+              background: '#e7f3ff', 
+              borderRadius: '6px',
+              border: '1px solid #b3d9ff'
+            }}>
+              <p style={{ margin: 0, fontSize: '0.875rem', color: '#004085' }}>
+                🔄 Auto-refreshing every 3 seconds
+                <br />
+                <strong>Refresh count: {refreshCount}</strong>
+              </p>
+            </div>
+          )}
+          
           <p style={{ marginTop: '1rem', fontSize: '0.875rem', color: '#666' }}>
-            Cache refreshes automatically every 60 seconds
+            Each refresh = API call = Analytics data point
           </p>
         </div>
       </div>
@@ -166,7 +212,7 @@ export default function Home() {
       user={{ 
         id: 'demo-user-456',
         attributes: {
-          plan: 'free',  // premium → free (targeting testi için)
+          plan: 'premium',  // Test targeting rules
           country: 'TR'
         }
       }}

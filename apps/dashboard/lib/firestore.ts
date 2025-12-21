@@ -20,6 +20,7 @@ export const COLLECTIONS = {
   FLAG_VALUES: 'flag_values',
   API_KEYS: 'api_keys',
   AUDIT_LOGS: 'audit_logs',
+  FLAG_ANALYTICS: 'flag_analytics',
 } as const;
 
 // Organization functions
@@ -239,4 +240,82 @@ export async function getAuditLogs(organizationId: string, limit: number = 100) 
     const bTime = b.timestamp?.toMillis() || b.createdAt?.toMillis() || 0;
     return bTime - aTime;
   }).slice(0, limit);
+}
+
+// Analytics functions
+export async function recordFlagEvaluation(data: {
+  flagKey: string;
+  flagId: string;
+  projectId: string;
+  environmentId: string;
+  userId?: string;
+  result: boolean | string | number;
+  targetingApplied?: boolean;
+}) {
+  return await addDoc(collection(db, COLLECTIONS.FLAG_ANALYTICS), {
+    ...data,
+    timestamp: serverTimestamp(),
+    createdAt: serverTimestamp(),
+  });
+}
+
+export async function getFlagAnalytics(projectId: string, environmentId: string, days: number = 7) {
+  const analyticsQuery = query(
+    collection(db, COLLECTIONS.FLAG_ANALYTICS),
+    where('projectId', '==', projectId),
+    where('environmentId', '==', environmentId)
+  );
+  
+  const snapshot = await getDocs(analyticsQuery);
+  const analytics = snapshot.docs.map(doc => ({ 
+    id: doc.id, 
+    ...doc.data() 
+  }));
+  
+  // Filter by date range (last N days)
+  const cutoffTime = Date.now() - (days * 24 * 60 * 60 * 1000);
+  
+  return analytics.filter((a: any) => {
+    const time = a.timestamp?.toMillis() || a.createdAt?.toMillis() || 0;
+    return time >= cutoffTime;
+  });
+}
+
+export async function getAggregatedAnalytics(projectId: string, environmentId: string, days: number = 7) {
+  const analytics = await getFlagAnalytics(projectId, environmentId, days);
+  
+  // Aggregate by flag
+  const aggregated: Record<string, any> = {};
+  
+  analytics.forEach((entry: any) => {
+    const key = entry.flagKey;
+    
+    if (!aggregated[key]) {
+      aggregated[key] = {
+        flagKey: key,
+        flagId: entry.flagId,
+        evaluations: 0,
+        uniqueUsers: new Set(),
+        trueCount: 0,
+        falseCount: 0,
+        targetingAppliedCount: 0,
+      };
+    }
+    
+    aggregated[key].evaluations++;
+    
+    if (entry.userId) {
+      aggregated[key].uniqueUsers.add(entry.userId);
+    }
+    
+    if (entry.result === true) aggregated[key].trueCount++;
+    if (entry.result === false) aggregated[key].falseCount++;
+    if (entry.targetingApplied) aggregated[key].targetingAppliedCount++;
+  });
+  
+  // Convert Set to count
+  return Object.values(aggregated).map((item: any) => ({
+    ...item,
+    uniqueUsers: item.uniqueUsers.size,
+  }));
 }

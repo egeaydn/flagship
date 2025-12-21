@@ -273,6 +273,18 @@ export default function ProjectPage() {
               >
                 🔑 API Keys
               </button>
+              <button
+                onClick={() => router.push(`/dashboard/${slug}/projects/${projectKey}/analytics`)}
+                className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 font-medium"
+              >
+                📊 Analytics
+              </button>
+              <button
+                onClick={() => router.push(`/dashboard/${slug}/audit-logs`)}
+                className="px-3 py-1 text-sm bg-purple-100 text-purple-700 rounded-md hover:bg-purple-200 font-medium"
+              >
+                📋 Audit Logs
+              </button>
             </div>
             <button
               onClick={() => setShowCreateForm(!showCreateForm)}

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { db } from '@/lib/firebase';
 import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore';
-import { COLLECTIONS } from '@/lib/firestore';
+import { COLLECTIONS, recordFlagEvaluation } from '@/lib/firestore';
 import { evaluateTargeting, UserContext } from '@/lib/targeting';
 
 // Request schema validation
@@ -102,6 +102,7 @@ async function getProjectFlags(projectId: string, environmentId: string, user?: 
     if (flagValue) {
       // Evaluate targeting rules if present
       const targeting = flagValue.targeting;
+      let targetingApplied = false;
       
       if (targeting && targeting.enabled && user) {
         const result = evaluateTargeting(
@@ -111,18 +112,53 @@ async function getProjectFlags(projectId: string, environmentId: string, user?: 
           flagValue.value
         );
         
+        targetingApplied = true;
+        
         flags[flagData.key] = {
           enabled: result.enabled,
           value: result.value,
           type: flagData.flagType,
+          _analytics: {
+            flagId: doc.id,
+            targetingApplied,
+          },
         };
+        
+        // Record analytics (async, don't await to avoid slowing down response)
+        recordFlagEvaluation({
+          flagKey: flagData.key,
+          flagId: doc.id,
+          projectId,
+          environmentId,
+          userId: user.id,
+          result: result.enabled,
+          targetingApplied,
+        }).then(() => {
+          console.log('✅ Analytics recorded:', { flagKey: flagData.key, projectId, environmentId, userId: user.id });
+        }).catch(err => console.error('❌ Analytics error:', err));
+        
       } else {
         // No targeting or targeting disabled
         flags[flagData.key] = {
           enabled: flagValue.enabled || false,
           value: flagValue.value,
           type: flagData.flagType,
+          _analytics: {
+            flagId: doc.id,
+            targetingApplied,
+          },
         };
+        
+        // Record analytics
+        recordFlagEvaluation({
+          flagKey: flagData.key,
+          flagId: doc.id,
+          projectId,
+          environmentId,
+          userId: user?.id,
+          result: flagValue.enabled || false,
+          targetingApplied,
+        }).catch(err => console.error('Analytics error:', err));
       }
     } else {
       // Default values if no flag_value exists
@@ -130,7 +166,22 @@ async function getProjectFlags(projectId: string, environmentId: string, user?: 
         enabled: false,
         value: flagData.defaultValue,
         type: flagData.flagType,
+        _analytics: {
+          flagId: doc.id,
+          targetingApplied: false,
+        },
       };
+      
+      // Record analytics for default values too
+      recordFlagEvaluation({
+        flagKey: flagData.key,
+        flagId: doc.id,
+        projectId,
+        environmentId,
+        userId: user?.id,
+        result: false,
+        targetingApplied: false,
+      }).catch(err => console.error('Analytics error:', err));
     }
   });
   

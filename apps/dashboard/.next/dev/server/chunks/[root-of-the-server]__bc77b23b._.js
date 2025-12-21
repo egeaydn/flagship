@@ -175,10 +175,18 @@ __turbopack_context__.s([
     ()=>createOrganization,
     "createProject",
     ()=>createProject,
+    "getAggregatedAnalytics",
+    ()=>getAggregatedAnalytics,
+    "getAuditLogs",
+    ()=>getAuditLogs,
     "getEnvironmentApiKeys",
     ()=>getEnvironmentApiKeys,
+    "getFlagAnalytics",
+    ()=>getFlagAnalytics,
     "getUserOrganizations",
     ()=>getUserOrganizations,
+    "recordFlagEvaluation",
+    ()=>recordFlagEvaluation,
     "revokeApiKey",
     ()=>revokeApiKey
 ]);
@@ -195,7 +203,8 @@ const COLLECTIONS = {
     FEATURE_FLAGS: 'feature_flags',
     FLAG_VALUES: 'flag_values',
     API_KEYS: 'api_keys',
-    AUDIT_LOGS: 'audit_logs'
+    AUDIT_LOGS: 'audit_logs',
+    FLAG_ANALYTICS: 'flag_analytics'
 };
 async function createOrganization(data) {
     const orgRef = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firebase$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["db"], COLLECTIONS.ORGANIZATIONS), {
@@ -320,8 +329,75 @@ async function getEnvironmentApiKeys(environmentId) {
 async function createAuditLog(data) {
     return await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firebase$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["db"], COLLECTIONS.AUDIT_LOGS), {
         ...data,
+        timestamp: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["serverTimestamp"])(),
         createdAt: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["serverTimestamp"])()
     });
+}
+async function getAuditLogs(organizationId, limit = 100) {
+    const logsQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firebase$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["db"], COLLECTIONS.AUDIT_LOGS), (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["where"])('organizationId', '==', organizationId));
+    const snapshot = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getDocs"])(logsQuery);
+    const logs = snapshot.docs.map((doc)=>({
+            id: doc.id,
+            ...doc.data()
+        }));
+    // Sort by timestamp descending (newest first)
+    return logs.sort((a, b)=>{
+        const aTime = a.timestamp?.toMillis() || a.createdAt?.toMillis() || 0;
+        const bTime = b.timestamp?.toMillis() || b.createdAt?.toMillis() || 0;
+        return bTime - aTime;
+    }).slice(0, limit);
+}
+async function recordFlagEvaluation(data) {
+    return await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firebase$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["db"], COLLECTIONS.FLAG_ANALYTICS), {
+        ...data,
+        timestamp: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["serverTimestamp"])(),
+        createdAt: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["serverTimestamp"])()
+    });
+}
+async function getFlagAnalytics(projectId, environmentId, days = 7) {
+    const analyticsQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firebase$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["db"], COLLECTIONS.FLAG_ANALYTICS), (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["where"])('projectId', '==', projectId), (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["where"])('environmentId', '==', environmentId));
+    const snapshot = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$node$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getDocs"])(analyticsQuery);
+    const analytics = snapshot.docs.map((doc)=>({
+            id: doc.id,
+            ...doc.data()
+        }));
+    // Filter by date range (last N days)
+    const cutoffTime = Date.now() - days * 24 * 60 * 60 * 1000;
+    return analytics.filter((a)=>{
+        const time = a.timestamp?.toMillis() || a.createdAt?.toMillis() || 0;
+        return time >= cutoffTime;
+    });
+}
+async function getAggregatedAnalytics(projectId, environmentId, days = 7) {
+    const analytics = await getFlagAnalytics(projectId, environmentId, days);
+    // Aggregate by flag
+    const aggregated = {};
+    analytics.forEach((entry)=>{
+        const key = entry.flagKey;
+        if (!aggregated[key]) {
+            aggregated[key] = {
+                flagKey: key,
+                flagId: entry.flagId,
+                evaluations: 0,
+                uniqueUsers: new Set(),
+                trueCount: 0,
+                falseCount: 0,
+                targetingAppliedCount: 0
+            };
+        }
+        aggregated[key].evaluations++;
+        if (entry.userId) {
+            aggregated[key].uniqueUsers.add(entry.userId);
+        }
+        if (entry.result === true) aggregated[key].trueCount++;
+        if (entry.result === false) aggregated[key].falseCount++;
+        if (entry.targetingApplied) aggregated[key].targetingAppliedCount++;
+    });
+    // Convert Set to count
+    return Object.values(aggregated).map((item)=>({
+            ...item,
+            uniqueUsers: item.uniqueUsers.size
+        }));
 }
 }),
 "[project]/Desktop/flagship/apps/dashboard/lib/targeting.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
@@ -570,28 +646,72 @@ async function getProjectFlags(projectId, environmentId, user) {
         if (flagValue) {
             // Evaluate targeting rules if present
             const targeting = flagValue.targeting;
+            let targetingApplied = false;
             if (targeting && targeting.enabled && user) {
                 const result = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$targeting$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["evaluateTargeting"])(flagData.key, targeting, user, flagValue.value);
+                targetingApplied = true;
                 flags[flagData.key] = {
                     enabled: result.enabled,
                     value: result.value,
-                    type: flagData.flagType
+                    type: flagData.flagType,
+                    _analytics: {
+                        flagId: doc.id,
+                        targetingApplied
+                    }
                 };
+                // Record analytics (async, don't await to avoid slowing down response)
+                (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firestore$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["recordFlagEvaluation"])({
+                    flagKey: flagData.key,
+                    flagId: doc.id,
+                    projectId,
+                    environmentId,
+                    userId: user.id,
+                    result: result.enabled,
+                    targetingApplied
+                }).catch((err)=>console.error('Analytics error:', err));
             } else {
                 // No targeting or targeting disabled
                 flags[flagData.key] = {
                     enabled: flagValue.enabled || false,
                     value: flagValue.value,
-                    type: flagData.flagType
+                    type: flagData.flagType,
+                    _analytics: {
+                        flagId: doc.id,
+                        targetingApplied
+                    }
                 };
+                // Record analytics
+                (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firestore$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["recordFlagEvaluation"])({
+                    flagKey: flagData.key,
+                    flagId: doc.id,
+                    projectId,
+                    environmentId,
+                    userId: user?.id,
+                    result: flagValue.enabled || false,
+                    targetingApplied
+                }).catch((err)=>console.error('Analytics error:', err));
             }
         } else {
             // Default values if no flag_value exists
             flags[flagData.key] = {
                 enabled: false,
                 value: flagData.defaultValue,
-                type: flagData.flagType
+                type: flagData.flagType,
+                _analytics: {
+                    flagId: doc.id,
+                    targetingApplied: false
+                }
             };
+            // Record analytics for default values too
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firestore$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["recordFlagEvaluation"])({
+                flagKey: flagData.key,
+                flagId: doc.id,
+                projectId,
+                environmentId,
+                userId: user?.id,
+                result: false,
+                targetingApplied: false
+            }).catch((err)=>console.error('Analytics error:', err));
         }
     });
     return flags;
