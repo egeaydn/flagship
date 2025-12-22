@@ -425,14 +425,13 @@ function hashString(str) {
         hash = (hash << 5) - hash + char;
         hash = hash & hash; // Convert to 32bit integer
     }
-    return Math.abs(hash);
+    return Math.abs(hash) % 100; // Return 0-100
 }
 function isInRollout(userId, flagKey, percentage) {
     if (percentage === 0) return false;
     if (percentage === 100) return true;
     const combinedStr = `${flagKey}:${userId}`;
-    const hash = hashString(combinedStr);
-    const bucket = hash % 100;
+    const bucket = hashString(combinedStr); // Already 0-100
     return bucket < percentage;
 }
 function evaluateCondition(userValue, operator, conditionValue) {
@@ -807,16 +806,75 @@ async function OPTIONS() {
         }
     });
 }
-async function GET() {
-    return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-        service: 'Flagship Feature Flags API',
-        version: '1.0.0',
-        status: 'operational'
-    }, {
-        headers: {
-            'Access-Control-Allow-Origin': '*'
+async function GET(request) {
+    try {
+        // Extract API key from header
+        const apiKey = request.headers.get('x-api-key') || request.headers.get('authorization')?.replace('Bearer ', '');
+        // Authenticate
+        const auth = await authenticateApiKey(apiKey);
+        if (!auth.valid) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: 'Invalid or missing API key'
+            }, {
+                status: 401
+            });
         }
-    });
+        // Get project from environment
+        const projectId = await getProjectFromEnvironment(auth.environmentId);
+        if (!projectId) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: 'Environment not found'
+            }, {
+                status: 404
+            });
+        }
+        // Extract user context from query parameters
+        const { searchParams } = new URL(request.url);
+        const userId = searchParams.get('userId') || searchParams.get('user_id');
+        let userContext;
+        if (userId) {
+            const attributes = {};
+            // Extract all query parameters as user attributes
+            searchParams.forEach((value, key)=>{
+                if (key !== 'userId' && key !== 'user_id') {
+                    attributes[key] = value;
+                }
+            });
+            userContext = {
+                id: userId,
+                attributes
+            };
+        }
+        // Fetch flags with targeting evaluation
+        const flags = await getProjectFlags(projectId, auth.environmentId, userContext);
+        // Convert flags object to array format for easier consumption
+        const flagsArray = Object.entries(flags).map(([key, value])=>({
+                key,
+                ...value
+            }));
+        // Return response
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            flags: flagsArray,
+            user: userContext
+        }, {
+            status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, x-api-key, Authorization',
+                'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=30',
+                'Content-Type': 'application/json'
+            }
+        });
+    } catch (error) {
+        console.error('API Error:', error);
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            error: 'Internal server error',
+            message: error.message
+        }, {
+            status: 500
+        });
+    }
 }
 }),
 ];
