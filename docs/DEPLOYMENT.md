@@ -2,14 +2,14 @@
 
 ## Overview
 
-Flagship platformu, Vercel (Next.js) ve Supabase (PostgreSQL) kullanarak modern, serverless bir deployment stratejisi izler.
+Flagship platformu, Vercel (Next.js) ve Firebase (Firestore + Auth) kullanarak modern, serverless bir deployment stratejisi izler.
 
 **Stack:**
 - **Frontend/Dashboard:** Vercel (Next.js App Router)
-- **Database:** Supabase (PostgreSQL + Auth)
-- **Edge Functions:** Vercel Edge Runtime
-- **Cache:** Upstash Redis (rate limiting)
-- **Monitoring:** Vercel Analytics + Sentry
+- **Database:** Firebase Firestore
+- **Authentication:** Firebase Auth
+- **API:** Next.js API Routes (Serverless Functions)
+- **Monitoring:** Vercel Analytics
 
 ## Environments
 
@@ -19,39 +19,41 @@ Flagship platformu, Vercel (Next.js) ve Supabase (PostgreSQL) kullanarak modern,
 # Local development setup
 git clone <repo>
 cd flagship
-pnpm install
-
-# Start Supabase locally
-supabase start
+npm install --legacy-peer-deps
 
 # Copy environment variables
 cp .env.example .env.local
 
-# Start Next.js dev server
-pnpm dev
+# Start Next.js dev server (dashboard)
+cd apps/dashboard
+npm run dev
+
+# Start demo app (separate terminal)
+cd apps/demo
+npm run dev
 ```
 
 **Environment Variables (`.env.local`):**
 ```bash
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
-SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...
+# Firebase
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 
-# Upstash Redis (optional for local)
-UPSTASH_REDIS_URL=http://localhost:6379
-
-# Feature flags
+# Development
 NODE_ENV=development
 ```
 
-### Staging
+### Staging (Optional)
 
 **Purpose:** Pre-production testing, QA environment
 
 **URL:** `https://flagship-staging.vercel.app`
 
-**Database:** Supabase staging project
+**Database:** Firebase staging project (separate project)
 
 **Deployment:** Auto-deploy on `develop` branch
 
@@ -66,11 +68,11 @@ git push origin develop
 
 **Purpose:** Live user-facing application
 
-**URL:** `https://flagship.app` (custom domain)
+**URL:** Your production domain (e.g., `https://flagship.app`)
 
-**Database:** Supabase production project
+**Database:** Firebase production project
 
-**Deployment:** Auto-deploy on `main` branch (with approval)
+**Deployment:** Auto-deploy on `main` branch
 
 ```bash
 # Merge to main
@@ -78,7 +80,7 @@ git checkout main
 git merge develop
 git push origin main
 
-# Vercel deploys after checks pass
+# GitHub Actions runs tests, then Vercel deploys
 ```
 
 ## Vercel Setup
@@ -87,17 +89,21 @@ git push origin main
 
 **Import Repository:**
 1. Go to [vercel.com](https://vercel.com)
-2. Import Git Repository
-3. Select `flagship` repo
-4. Configure:
+2. Click "Add New" → "Project"
+3. Import your Git repository
+4. Configure project:
    - Framework Preset: Next.js
    - Root Directory: `apps/dashboard`
-   - Build Command: `pnpm build`
+   - Build Command: `npm run build`
    - Output Directory: `.next`
+   - Install Command: `npm install --legacy-peer-deps`
 
 ### 2. Environment Variables
 
-**Production Variables:**
+**Add Firebase Configuration in Vercel:**
+1. Go to Project Settings → Environment Variables
+2. Add the following for all environments (Production, Preview, Development):
+
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://<project>.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
