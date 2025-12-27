@@ -108,7 +108,7 @@ export default function DashboardPage() {
               <img 
                 src="/FlagShip-logo-transparent.png" 
                 alt="Flagship Logo" 
-                className="w-10 h-10 object-contain"
+                className="w-14 h-14 object-contain"
               />
               <div>
                 <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-[#0066FF] to-[#00B8D4] bg-clip-text text-transparent">

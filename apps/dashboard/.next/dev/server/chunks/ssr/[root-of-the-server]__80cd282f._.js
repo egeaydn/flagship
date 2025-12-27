@@ -553,7 +553,7 @@ function DashboardNav({ user, organization, project }) {
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                 src: "/FlagShip-logo-transparent.png",
                                                 alt: "Flagship Logo",
-                                                className: "w-10 h-10 object-contain group-hover:scale-110 transition-transform"
+                                                className: "w-14 h-14 object-contain group-hover:scale-110 transition-transform"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/flagship/apps/dashboard/components/DashboardNav.tsx",
                                                 lineNumber: 126,
