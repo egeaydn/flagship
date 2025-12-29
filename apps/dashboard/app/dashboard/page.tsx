@@ -23,6 +23,10 @@ export default function DashboardPage() {
   const router = useRouter();
 
   useEffect(() => {
+    document.title = 'Organizations | Flagship';
+  }, []);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);

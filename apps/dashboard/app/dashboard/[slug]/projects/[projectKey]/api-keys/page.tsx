@@ -47,6 +47,10 @@ export default function ApiKeysPage() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
+    document.title = 'API Keys | Flagship';
+  }, []);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
@@ -13,6 +13,10 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    document.title = isSignup ? 'Sign Up | Flagship' : 'Login | Flagship';
+  }, [isSignup]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

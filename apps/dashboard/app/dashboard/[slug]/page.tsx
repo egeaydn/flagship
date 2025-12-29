@@ -35,6 +35,12 @@ export default function OrganizationPage() {
   const [creating, setCreating] = useState(false);
 
   useEffect(() => {
+    if (organization) {
+      document.title = `${organization.name} | Flagship`;
+    }
+  }, [organization]);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);

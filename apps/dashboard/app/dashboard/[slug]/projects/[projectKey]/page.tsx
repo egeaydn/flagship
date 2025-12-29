@@ -72,6 +72,12 @@ export default function ProjectPage() {
   const [creating, setCreating] = useState(false);
 
   useEffect(() => {
+    if (project) {
+      document.title = `${project.name} | Flagship`;
+    }
+  }, [project]);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);

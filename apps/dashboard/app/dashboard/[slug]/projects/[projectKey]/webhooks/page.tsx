@@ -26,6 +26,10 @@ export default function WebhooksPage() {
   const [testingWebhook, setTestingWebhook] = useState<string | null>(null);
 
   useEffect(() => {
+    document.title = 'Webhooks | Flagship';
+  }, []);
+
+  useEffect(() => {
     loadWebhooks();
   }, [projectKey]);
 

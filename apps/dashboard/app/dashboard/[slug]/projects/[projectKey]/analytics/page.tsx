@@ -29,6 +29,10 @@ export default function AnalyticsPage() {
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   useEffect(() => {
+    document.title = 'Analytics | Flagship';
+  }, []);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });

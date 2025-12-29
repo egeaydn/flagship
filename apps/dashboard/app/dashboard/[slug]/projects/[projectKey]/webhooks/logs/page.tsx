@@ -23,6 +23,10 @@ export default function WebhookLogsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title = 'Webhook Logs | Flagship';
+  }, []);
+
+  useEffect(() => {
     loadWebhooksAndDeliveries();
   }, [projectKey, selectedWebhook]);
 

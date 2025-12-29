@@ -164,6 +164,9 @@ function Home() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        document.title = 'Flagship - Feature Flags Platform';
+    }, []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$node$2d$esm$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firebase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["auth"], (user)=>{
             if (user) {
                 router.push('/dashboard');
@@ -183,12 +186,12 @@ function Home() {
                 children: "Loading..."
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                lineNumber: 27,
+                lineNumber: 31,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-            lineNumber: 26,
+            lineNumber: 30,
             columnNumber: 7
         }, this);
     }
@@ -211,7 +214,7 @@ function Home() {
                                         className: "w-12 h-12 object-contain"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 39,
+                                        lineNumber: 43,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -219,13 +222,13 @@ function Home() {
                                         children: "Flagship"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 40,
+                                        lineNumber: 44,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 38,
+                                lineNumber: 42,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -239,7 +242,7 @@ function Home() {
                                         children: "GitHub"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 43,
+                                        lineNumber: 47,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -248,7 +251,7 @@ function Home() {
                                         children: "Docs"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 51,
+                                        lineNumber: 55,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -257,29 +260,29 @@ function Home() {
                                         children: "Sign In"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 57,
+                                        lineNumber: 61,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 42,
+                                lineNumber: 46,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                        lineNumber: 37,
+                        lineNumber: 41,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                    lineNumber: 36,
+                    lineNumber: 40,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                lineNumber: 35,
+                lineNumber: 39,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -295,7 +298,7 @@ function Home() {
                                     "Feature Flags",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 74,
+                                        lineNumber: 78,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -303,13 +306,13 @@ function Home() {
                                         children: "Made Simple"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 75,
+                                        lineNumber: 79,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 72,
+                                lineNumber: 76,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -317,7 +320,7 @@ function Home() {
                                 children: "The open-source alternative to LaunchDarkly. Deploy features with confidence using advanced targeting and real-time analytics."
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 79,
+                                lineNumber: 83,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -329,7 +332,7 @@ function Home() {
                                         children: "Get Started Free"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 87,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -338,29 +341,29 @@ function Home() {
                                         children: "Live Demo →"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 89,
+                                        lineNumber: 93,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 82,
+                                lineNumber: 86,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                        lineNumber: 71,
+                        lineNumber: 75,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                    lineNumber: 70,
+                    lineNumber: 74,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                lineNumber: 69,
+                lineNumber: 73,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -378,7 +381,7 @@ function Home() {
                                         children: "🎯"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 106,
+                                        lineNumber: 110,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -386,7 +389,7 @@ function Home() {
                                         children: "Advanced Targeting"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 107,
+                                        lineNumber: 111,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -394,13 +397,13 @@ function Home() {
                                         children: "Target users by attributes with 8+ operators. Percentage rollouts with deterministic hashing."
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 108,
+                                        lineNumber: 112,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 105,
+                                lineNumber: 109,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -411,7 +414,7 @@ function Home() {
                                         children: "📊"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 115,
+                                        lineNumber: 119,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -419,7 +422,7 @@ function Home() {
                                         children: "Real-time Analytics"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 116,
+                                        lineNumber: 120,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -427,13 +430,13 @@ function Home() {
                                         children: "Track flag evaluations with beautiful charts. Auto-refresh dashboard with live insights."
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 117,
+                                        lineNumber: 121,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 114,
+                                lineNumber: 118,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -444,7 +447,7 @@ function Home() {
                                         children: "🪝"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 124,
+                                        lineNumber: 128,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -452,7 +455,7 @@ function Home() {
                                         children: "Webhook Integration"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 125,
+                                        lineNumber: 129,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -460,13 +463,13 @@ function Home() {
                                         children: "Get notified on Slack, Discord, or custom endpoints when flags change."
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 126,
+                                        lineNumber: 130,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 123,
+                                lineNumber: 127,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -477,7 +480,7 @@ function Home() {
                                         children: "🔍"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 133,
+                                        lineNumber: 137,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -485,7 +488,7 @@ function Home() {
                                         children: "Complete Audit Logs"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 138,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -493,13 +496,13 @@ function Home() {
                                         children: "Track every change with full audit trail. Know who changed what and when."
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 135,
+                                        lineNumber: 139,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 132,
+                                lineNumber: 136,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -510,7 +513,7 @@ function Home() {
                                         children: "⚡"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 146,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -518,7 +521,7 @@ function Home() {
                                         children: "Fast & Cached"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 143,
+                                        lineNumber: 147,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -526,13 +529,13 @@ function Home() {
                                         children: "Edge-optimized API with 60s cache. Response times under 50ms globally."
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 144,
+                                        lineNumber: 148,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 141,
+                                lineNumber: 145,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -543,7 +546,7 @@ function Home() {
                                         children: "🛡️"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 151,
+                                        lineNumber: 155,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -551,7 +554,7 @@ function Home() {
                                         children: "Type-safe SDKs"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 152,
+                                        lineNumber: 156,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -559,29 +562,29 @@ function Home() {
                                         children: "React SDK with TypeScript support. Auto-completion and type checking."
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                        lineNumber: 153,
+                                        lineNumber: 157,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                lineNumber: 150,
+                                lineNumber: 154,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                        lineNumber: 103,
+                        lineNumber: 107,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                    lineNumber: 102,
+                    lineNumber: 106,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                lineNumber: 101,
+                lineNumber: 105,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -600,36 +603,12 @@ function Home() {
                                             children: "41"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                            lineNumber: 167,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-white/70 text-lg",
-                                            children: "Tests Passing"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                            lineNumber: 168,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                    lineNumber: 166,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-5xl font-bold text-white mb-2",
-                                            children: "<50ms"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
                                             lineNumber: 171,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "text-white/70 text-lg",
-                                            children: "API Response Time"
+                                            children: "Tests Passing"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
                                             lineNumber: 172,
@@ -645,7 +624,7 @@ function Home() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "text-5xl font-bold text-white mb-2",
-                                            children: "100%"
+                                            children: "<50ms"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
                                             lineNumber: 175,
@@ -653,7 +632,7 @@ function Home() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "text-white/70 text-lg",
-                                            children: "Open Source"
+                                            children: "API Response Time"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
                                             lineNumber: 176,
@@ -664,26 +643,50 @@ function Home() {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
                                     lineNumber: 174,
                                     columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "text-5xl font-bold text-white mb-2",
+                                            children: "100%"
+                                        }, void 0, false, {
+                                            fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
+                                            lineNumber: 179,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "text-white/70 text-lg",
+                                            children: "Open Source"
+                                        }, void 0, false, {
+                                            fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
+                                            lineNumber: 180,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
+                                    lineNumber: 178,
+                                    columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                            lineNumber: 165,
+                            lineNumber: 169,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                        lineNumber: 164,
+                        lineNumber: 168,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                    lineNumber: 163,
+                    lineNumber: 167,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                lineNumber: 162,
+                lineNumber: 166,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -696,7 +699,7 @@ function Home() {
                             children: "Ready to ship features faster?"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                            lineNumber: 186,
+                            lineNumber: 190,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -704,7 +707,7 @@ function Home() {
                             children: "Join developers using Flagship to control feature rollouts with confidence."
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                            lineNumber: 189,
+                            lineNumber: 193,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -713,18 +716,18 @@ function Home() {
                             children: "Get Started Free →"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                            lineNumber: 192,
+                            lineNumber: 196,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                    lineNumber: 185,
+                    lineNumber: 189,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                lineNumber: 184,
+                lineNumber: 188,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -737,7 +740,7 @@ function Home() {
                             children: "Built with ❤️ by developers, for developers"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                            lineNumber: 204,
+                            lineNumber: 208,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -749,7 +752,7 @@ function Home() {
                                     children: "GitHub"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                    lineNumber: 208,
+                                    lineNumber: 212,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -758,7 +761,7 @@ function Home() {
                                     children: "Documentation"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                    lineNumber: 211,
+                                    lineNumber: 215,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -767,30 +770,30 @@ function Home() {
                                     children: "Twitter"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                                    lineNumber: 214,
+                                    lineNumber: 218,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                            lineNumber: 207,
+                            lineNumber: 211,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                    lineNumber: 203,
+                    lineNumber: 207,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-                lineNumber: 202,
+                lineNumber: 206,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/page.tsx",
-        lineNumber: 33,
+        lineNumber: 37,
         columnNumber: 5
     }, this);
 }

@@ -31,6 +31,10 @@ export default function AuditLogsPage() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
+    document.title = 'Audit Logs | Flagship';
+  }, []);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });

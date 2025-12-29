@@ -349,6 +349,15 @@ function OrganizationPage() {
     const [creating, setCreating] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "OrganizationPage.useEffect": ()=>{
+            if (organization) {
+                document.title = `${organization.name} | Flagship`;
+            }
+        }
+    }["OrganizationPage.useEffect"], [
+        organization
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "OrganizationPage.useEffect": ()=>{
             const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$apps$2f$dashboard$2f$lib$2f$firebase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["auth"], {
                 "OrganizationPage.useEffect.unsubscribe": async (user)=>{
                     if (user) {
@@ -436,12 +445,12 @@ function OrganizationPage() {
                 children: "Yükleniyor..."
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                lineNumber: 120,
+                lineNumber: 126,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-            lineNumber: 119,
+            lineNumber: 125,
             columnNumber: 7
         }, this);
     }
@@ -470,7 +479,7 @@ function OrganizationPage() {
                                                 children: "←"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                lineNumber: 140,
+                                                lineNumber: 146,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -478,20 +487,20 @@ function OrganizationPage() {
                                                 children: "Dashboard"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                lineNumber: 141,
+                                                lineNumber: 147,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                        lineNumber: 136,
+                                        lineNumber: 142,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "h-8 w-px bg-gray-300"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                        lineNumber: 143,
+                                        lineNumber: 149,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -501,7 +510,7 @@ function OrganizationPage() {
                                                 children: organization.name
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                lineNumber: 145,
+                                                lineNumber: 151,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -509,19 +518,19 @@ function OrganizationPage() {
                                                 children: "Organization"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                lineNumber: 148,
+                                                lineNumber: 154,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                        lineNumber: 144,
+                                        lineNumber: 150,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                lineNumber: 135,
+                                lineNumber: 141,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -533,7 +542,7 @@ function OrganizationPage() {
                                             className: "w-2 h-2 bg-green-500 rounded-full animate-pulse"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                            lineNumber: 153,
+                                            lineNumber: 159,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -541,34 +550,34 @@ function OrganizationPage() {
                                             children: user?.email
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                            lineNumber: 154,
+                                            lineNumber: 160,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                    lineNumber: 152,
+                                    lineNumber: 158,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                lineNumber: 151,
+                                lineNumber: 157,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                        lineNumber: 134,
+                        lineNumber: 140,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                    lineNumber: 133,
+                    lineNumber: 139,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                lineNumber: 132,
+                lineNumber: 138,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -586,7 +595,7 @@ function OrganizationPage() {
                                             children: "Projects"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                            lineNumber: 166,
+                                            lineNumber: 172,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -594,13 +603,13 @@ function OrganizationPage() {
                                             children: "Manage your feature flag projects"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                            lineNumber: 167,
+                                            lineNumber: 173,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                    lineNumber: 165,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -609,13 +618,13 @@ function OrganizationPage() {
                                     children: showCreateForm ? '✕ Cancel' : '+ New Project'
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                    lineNumber: 169,
+                                    lineNumber: 175,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                            lineNumber: 164,
+                            lineNumber: 170,
                             columnNumber: 11
                         }, this),
                         showCreateForm && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -631,7 +640,7 @@ function OrganizationPage() {
                                                 children: "Create New Project"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                lineNumber: 182,
+                                                lineNumber: 188,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -649,23 +658,23 @@ function OrganizationPage() {
                                                         d: "M6 18L18 6M6 6l12 12"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                        lineNumber: 188,
+                                                        lineNumber: 194,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                    lineNumber: 187,
+                                                    lineNumber: 193,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                lineNumber: 183,
+                                                lineNumber: 189,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                        lineNumber: 181,
+                                        lineNumber: 187,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -682,7 +691,7 @@ function OrganizationPage() {
                                                                 children: "Project Name"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                lineNumber: 195,
+                                                                lineNumber: 201,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -700,13 +709,13 @@ function OrganizationPage() {
                                                                 placeholder: "Mobile App"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                lineNumber: 198,
+                                                                lineNumber: 204,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                        lineNumber: 194,
+                                                        lineNumber: 200,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -716,7 +725,7 @@ function OrganizationPage() {
                                                                 children: "Project Key"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                lineNumber: 214,
+                                                                lineNumber: 220,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -731,19 +740,19 @@ function OrganizationPage() {
                                                                 placeholder: "mobile-app"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                lineNumber: 217,
+                                                                lineNumber: 223,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                        lineNumber: 213,
+                                                        lineNumber: 219,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                lineNumber: 193,
+                                                lineNumber: 199,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -753,7 +762,7 @@ function OrganizationPage() {
                                                         children: "Description (Optional)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                        lineNumber: 228,
+                                                        lineNumber: 234,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -767,13 +776,13 @@ function OrganizationPage() {
                                                         rows: 3
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                        lineNumber: 231,
+                                                        lineNumber: 237,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                lineNumber: 227,
+                                                lineNumber: 233,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -798,7 +807,7 @@ function OrganizationPage() {
                                                                     strokeWidth: "4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                    lineNumber: 247,
+                                                                    lineNumber: 253,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -807,42 +816,42 @@ function OrganizationPage() {
                                                                     d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                    lineNumber: 248,
+                                                                    lineNumber: 254,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                            lineNumber: 246,
+                                                            lineNumber: 252,
                                                             columnNumber: 25
                                                         }, this),
                                                         "Creating..."
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                    lineNumber: 245,
+                                                    lineNumber: 251,
                                                     columnNumber: 23
                                                 }, this) : '✓ Create Project'
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                lineNumber: 239,
+                                                lineNumber: 245,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                        lineNumber: 192,
+                                        lineNumber: 198,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                lineNumber: 180,
+                                lineNumber: 186,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                            lineNumber: 179,
+                            lineNumber: 185,
                             columnNumber: 13
                         }, this),
                         projects.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -855,12 +864,12 @@ function OrganizationPage() {
                                         children: "📦"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                        lineNumber: 265,
+                                        lineNumber: 271,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                    lineNumber: 264,
+                                    lineNumber: 270,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -868,7 +877,7 @@ function OrganizationPage() {
                                     children: "No projects yet"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                    lineNumber: 267,
+                                    lineNumber: 273,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -876,7 +885,7 @@ function OrganizationPage() {
                                     children: "Create your first project to start managing feature flags"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                    lineNumber: 268,
+                                    lineNumber: 274,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -888,20 +897,20 @@ function OrganizationPage() {
                                             children: "+"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                            lineNumber: 273,
+                                            lineNumber: 279,
                                             columnNumber: 17
                                         }, this),
                                         "Create Your First Project"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                    lineNumber: 269,
+                                    lineNumber: 275,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                            lineNumber: 263,
+                            lineNumber: 269,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
@@ -913,7 +922,7 @@ function OrganizationPage() {
                                             className: "h-2 bg-gradient-to-r from-[#0066FF] to-[#00B8D4]"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                            lineNumber: 286,
+                                            lineNumber: 292,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -930,7 +939,7 @@ function OrganizationPage() {
                                                                     children: project.name
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                    lineNumber: 292,
+                                                                    lineNumber: 298,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
@@ -938,13 +947,13 @@ function OrganizationPage() {
                                                                     children: project.key
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                    lineNumber: 295,
+                                                                    lineNumber: 301,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                            lineNumber: 291,
+                                                            lineNumber: 297,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -954,18 +963,18 @@ function OrganizationPage() {
                                                                 children: "🚀"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                lineNumber: 300,
+                                                                lineNumber: 306,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                            lineNumber: 299,
+                                                            lineNumber: 305,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                    lineNumber: 290,
+                                                    lineNumber: 296,
                                                     columnNumber: 21
                                                 }, this),
                                                 project.description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -973,7 +982,7 @@ function OrganizationPage() {
                                                     children: project.description
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                    lineNumber: 305,
+                                                    lineNumber: 311,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -988,7 +997,7 @@ function OrganizationPage() {
                                                             }) || 'New'
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                            lineNumber: 312,
+                                                            lineNumber: 318,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -999,7 +1008,7 @@ function OrganizationPage() {
                                                                     children: "Open"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                    lineNumber: 320,
+                                                                    lineNumber: 326,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -1014,62 +1023,62 @@ function OrganizationPage() {
                                                                         d: "M9 5l7 7-7 7"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                        lineNumber: 322,
+                                                                        lineNumber: 328,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                                    lineNumber: 321,
+                                                                    lineNumber: 327,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                            lineNumber: 319,
+                                                            lineNumber: 325,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                                    lineNumber: 311,
+                                                    lineNumber: 317,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                            lineNumber: 289,
+                                            lineNumber: 295,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, project.id, true, {
                                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                                    lineNumber: 280,
+                                    lineNumber: 286,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                            lineNumber: 278,
+                            lineNumber: 284,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                    lineNumber: 162,
+                    lineNumber: 168,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-                lineNumber: 161,
+                lineNumber: 167,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/app/dashboard/[slug]/page.tsx",
-        lineNumber: 130,
+        lineNumber: 136,
         columnNumber: 5
     }, this);
 }
-_s(OrganizationPage, "h4PnF7bsZu/C13cU1PLRIEPztE4=", false, function() {
+_s(OrganizationPage, "5COh/adnjGEiDeTuRx7REJ0mE88=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useParams"],
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje__Klos$f6$r$fc2f$React$2f$flagship$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]

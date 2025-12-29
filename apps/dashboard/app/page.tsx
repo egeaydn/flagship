@@ -10,6 +10,10 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title = 'Flagship - Feature Flags Platform';
+  }, []);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         router.push('/dashboard');

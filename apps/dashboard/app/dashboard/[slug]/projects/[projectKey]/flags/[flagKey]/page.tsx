@@ -53,6 +53,12 @@ export default function FlagDetailPage() {
   });
 
   useEffect(() => {
+    if (flag) {
+      document.title = `${flag.name} | Flagship`;
+    }
+  }, [flag]);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });

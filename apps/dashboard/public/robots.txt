@@ -1,0 +1,12 @@
+# Flagship - Feature Flags Platform
+# https://flagship.app/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /dashboard/*/admin
+
+# Sitemap
+Sitemap: https://flagship.app/sitemap.xml
