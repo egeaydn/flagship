@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { fadeIn, scaleIn, slideInBottom, buttonRipple } from '@/lib/animations';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -13,9 +14,26 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const formRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = isSignup ? 'Sign Up | Flagship' : 'Login | Flagship';
+  }, [isSignup]);
+
+  useEffect(() => {
+    // Initial animations
+    if (navRef.current) fadeIn(navRef.current, 0);
+    if (formRef.current) {
+      scaleIn(formRef.current, 200);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Animate form content when switching between login/signup
+    if (formRef.current) {
+      fadeIn(formRef.current, 0);
+    }
   }, [isSignup]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -46,7 +64,7 @@ export default function LoginPage() {
       </div>
 
       {/* Navigation */}
-      <div className="absolute top-0 left-0 right-0 p-6">
+      <div ref={navRef} className="absolute top-0 left-0 right-0 p-6 opacity-0">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <img src="/FlagShip-logo-transparent.png" alt="Flagship" className="w-12 h-12 object-contain" />
@@ -56,7 +74,7 @@ export default function LoginPage() {
       </div>
 
       {/* Login/Register Form */}
-      <div className="relative w-full max-w-md animate-fadeIn">
+      <div ref={formRef} className="relative w-full max-w-md opacity-0">
         <div className="glass p-8 rounded-2xl shadow-2xl border border-white/20">
           {/* Header */}
           <div className="text-center mb-8">

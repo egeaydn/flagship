@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { onAuthStateChanged, signOut, User } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 import { getUserOrganizations, createOrganization } from '@/lib/firestore';
+import { fadeIn, staggerFadeIn, scaleIn, slideInBottom, cardHover, cardHoverEnd, buttonRipple } from '@/lib/animations';
 
 interface Organization {
   id: string;
@@ -21,10 +22,27 @@ export default function DashboardPage() {
   const [formData, setFormData] = useState({ name: '', slug: '' });
   const [creating, setCreating] = useState(false);
   const router = useRouter();
+  const navRef = useRef<HTMLElement>(null);
+  const welcomeRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = 'Organizations | Flagship';
   }, []);
+
+  useEffect(() => {
+    // Initial page animations
+    if (!loading && user) {
+      if (navRef.current) fadeIn(navRef.current, 0);
+      if (welcomeRef.current) slideInBottom(welcomeRef.current, 200);
+      if (contentRef.current) fadeIn(contentRef.current, 400);
+      
+      // Stagger organization cards
+      setTimeout(() => {
+        staggerFadeIn('.org-card');
+      }, 600);
+    }
+  }, [loading, user]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -105,7 +123,7 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Modern Top Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50">
+      <nav ref={navRef} className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50 opacity-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
@@ -127,7 +145,10 @@ export default function DashboardPage() {
                 <span className="text-xs font-medium text-gray-700 truncate max-w-[150px]">{user?.email}</span>
               </div>
               <button
-                onClick={handleLogout}
+                onClick={(e) => {
+                  buttonRipple(e);
+                  handleLogout();
+                }}
                 className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-red-500 to-red-600 hover:shadow-lg hover:shadow-red-500/40 rounded-lg transition-all duration-300"
               >
                 Sign Out
@@ -140,7 +161,7 @@ export default function DashboardPage() {
       <main className="max-w-7xl mx-auto py-8 sm:px-6 lg:px-8">
         <div className="px-4 sm:px-0">
           {/* Welcome Section */}
-          <div className="mb-8 p-6 bg-gradient-to-r from-[#0066FF] to-[#00B8D4] rounded-2xl shadow-xl text-white">
+          <div ref={welcomeRef} className="mb-8 p-6 bg-gradient-to-r from-[#0066FF] to-[#00B8D4] rounded-2xl shadow-xl text-white opacity-0">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold mb-2">Welcome back! 👋</h2>
@@ -155,7 +176,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Header Section */}
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
+          <div ref={contentRef} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8 opacity-0">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Organizations</h2>
               <p className="text-gray-600">Select or create an organization to get started</p>
@@ -263,7 +284,9 @@ export default function DashboardPage() {
                 <div
                   key={org.id}
                   onClick={() => router.push(`/dashboard/${org.slug}`)}
-                  className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#0066FF]/30 cursor-pointer"
+                  onMouseEnter={(e) => cardHover(e.currentTarget)}
+                  onMouseLeave={(e) => cardHoverEnd(e.currentTarget)}
+                  className="org-card group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#0066FF]/30 cursor-pointer opacity-0"
                 >
                   {/* Card Header with Gradient */}
                   <div className="h-2 bg-gradient-to-r from-[#0066FF] to-[#00B8D4]"></div>
