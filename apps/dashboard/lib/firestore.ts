@@ -224,10 +224,10 @@ export async function createAuditLog(data: {
 
   // Trigger webhooks asynchronously (don't await to avoid slowing down audit log creation)
   if (data.projectId && data.action) {
-    const { triggerWebhooks, WebhookEvent } = await import('./webhooks');
+    const { triggerWebhooks } = await import('./webhooks');
     
     // Map audit log actions to webhook events
-    const eventMap: Record<string, WebhookEvent> = {
+    const eventMap: Record<string, string> = {
       'FLAG_CREATED': 'flag.created',
       'FLAG_UPDATED': 'flag.updated',
       'FLAG_DELETED': 'flag.deleted',
@@ -235,7 +235,7 @@ export async function createAuditLog(data: {
       'TARGETING_RULES_UPDATED': 'targeting.updated',
     };
 
-    const event = eventMap[data.action];
+    const event = eventMap[data.action] as any;
     
     if (event) {
       triggerWebhooks(data.projectId, event, {

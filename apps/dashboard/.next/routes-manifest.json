@@ -1,0 +1,176 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/dashboard/[slug]",
+      "regex": "^/dashboard/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/dashboard/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/dashboard/[slug]/audit-logs",
+      "regex": "^/dashboard/([^/]+?)/audit\\-logs(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/dashboard/(?<nxtPslug>[^/]+?)/audit\\-logs(?:/)?$"
+    },
+    {
+      "page": "/dashboard/[slug]/projects/[projectKey]",
+      "regex": "^/dashboard/([^/]+?)/projects/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug",
+        "nxtPprojectKey": "nxtPprojectKey"
+      },
+      "namedRegex": "^/dashboard/(?<nxtPslug>[^/]+?)/projects/(?<nxtPprojectKey>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/dashboard/[slug]/projects/[projectKey]/analytics",
+      "regex": "^/dashboard/([^/]+?)/projects/([^/]+?)/analytics(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug",
+        "nxtPprojectKey": "nxtPprojectKey"
+      },
+      "namedRegex": "^/dashboard/(?<nxtPslug>[^/]+?)/projects/(?<nxtPprojectKey>[^/]+?)/analytics(?:/)?$"
+    },
+    {
+      "page": "/dashboard/[slug]/projects/[projectKey]/api-keys",
+      "regex": "^/dashboard/([^/]+?)/projects/([^/]+?)/api\\-keys(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug",
+        "nxtPprojectKey": "nxtPprojectKey"
+      },
+      "namedRegex": "^/dashboard/(?<nxtPslug>[^/]+?)/projects/(?<nxtPprojectKey>[^/]+?)/api\\-keys(?:/)?$"
+    },
+    {
+      "page": "/dashboard/[slug]/projects/[projectKey]/flags/[flagKey]",
+      "regex": "^/dashboard/([^/]+?)/projects/([^/]+?)/flags/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug",
+        "nxtPprojectKey": "nxtPprojectKey",
+        "nxtPflagKey": "nxtPflagKey"
+      },
+      "namedRegex": "^/dashboard/(?<nxtPslug>[^/]+?)/projects/(?<nxtPprojectKey>[^/]+?)/flags/(?<nxtPflagKey>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/dashboard/[slug]/projects/[projectKey]/webhooks",
+      "regex": "^/dashboard/([^/]+?)/projects/([^/]+?)/webhooks(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug",
+        "nxtPprojectKey": "nxtPprojectKey"
+      },
+      "namedRegex": "^/dashboard/(?<nxtPslug>[^/]+?)/projects/(?<nxtPprojectKey>[^/]+?)/webhooks(?:/)?$"
+    },
+    {
+      "page": "/dashboard/[slug]/projects/[projectKey]/webhooks/logs",
+      "regex": "^/dashboard/([^/]+?)/projects/([^/]+?)/webhooks/logs(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug",
+        "nxtPprojectKey": "nxtPprojectKey"
+      },
+      "namedRegex": "^/dashboard/(?<nxtPslug>[^/]+?)/projects/(?<nxtPprojectKey>[^/]+?)/webhooks/logs(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/api/v1/flags",
+      "regex": "^/api/v1/flags(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/v1/flags(?:/)?$"
+    },
+    {
+      "page": "/api/webhooks/test",
+      "regex": "^/api/webhooks/test(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/webhooks/test(?:/)?$"
+    },
+    {
+      "page": "/apple-icon.png",
+      "regex": "^/apple\\-icon\\.png(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/apple\\-icon\\.png(?:/)?$"
+    },
+    {
+      "page": "/dashboard",
+      "regex": "^/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard(?:/)?$"
+    },
+    {
+      "page": "/icon.png",
+      "regex": "^/icon\\.png(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/icon\\.png(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

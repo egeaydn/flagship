@@ -1,0 +1,10 @@
+var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/v1/flags/route.js")
+R.c("server/chunks/[root-of-the-server]__1676b65a._.js")
+R.c("server/chunks/[root-of-the-server]__f90c5305._.js")
+R.c("server/chunks/[root-of-the-server]__b856e7c5._.js")
+R.c("server/chunks/34e88_next_dist_esm_build_templates_app-route_19db108e.js")
+R.c("server/chunks/34e88_5cb0b8b1._.js")
+R.c("server/chunks/Desktop_Proje Klosörü_React_flagship_apps_dashboard_lib_firebase_ts_5ec010c2._.js")
+R.c("server/chunks/32c03_apps_dashboard__next-internal_server_app_api_v1_flags_route_actions_82961606.js")
+R.m(35110)
+module.exports=R.m(35110).exports
