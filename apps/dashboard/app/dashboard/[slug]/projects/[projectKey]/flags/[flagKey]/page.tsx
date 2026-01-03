@@ -1,13 +1,14 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { doc, getDoc, collection, query, where, getDocs, updateDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { COLLECTIONS, createAuditLog } from '@/lib/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import toast from 'react-hot-toast';
+import { fadeIn, slideInBottom, staggerFadeIn, scaleIn, cardHover, cardHoverEnd } from '@/lib/animations';
 
 interface TargetingCondition {
   attribute: string;
@@ -51,6 +52,11 @@ export default function FlagDetailPage() {
       value: true
     }
   });
+
+  // Animation refs
+  const headerRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (flag) {
@@ -134,7 +140,30 @@ export default function FlagDetailPage() {
       console.error('Error loading flag value:', error);
     }
   }
+  // Mount animations
+  useEffect(() => {
+    if (headerRef.current) {
+      fadeIn(headerRef.current, 0);
+    }
+    if (tabsRef.current) {
+      slideInBottom(tabsRef.current, 200);
+    }
+    if (contentRef.current) {
+      slideInBottom(contentRef.current, 400);
+    }
+  }, [loading]);
 
+  // Rules change animation
+  useEffect(() => {
+    if (activeTab === 'targeting') {
+      const ruleCards = document.querySelectorAll('.targeting-rule-card');
+      if (ruleCards.length > 0) {
+        setTimeout(() => {
+          staggerFadeIn('.targeting-rule-card');
+        }, 100);
+      }
+    }
+  }, [targeting.rules, activeTab]);
   async function handleToggle() {
     if (!flagValue) return;
     
@@ -304,7 +333,7 @@ export default function FlagDetailPage() {
 
       <main className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         {/* Header Card */}
-        <div className="mb-8 bg-gradient-to-r from-[#0066FF] to-[#00B8D4] rounded-2xl shadow-xl text-white p-8">
+        <div ref={headerRef} className="mb-8 bg-gradient-to-r from-[#0066FF] to-[#00B8D4] rounded-2xl shadow-xl text-white p-8">
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="flex items-center space-x-3 mb-3">
@@ -352,7 +381,7 @@ export default function FlagDetailPage() {
         </div>
 
         {/* Tabs */}
-        <div className="mb-8">
+        <div ref={tabsRef} className="mb-8">
           <div className="bg-white rounded-xl shadow-md p-2 border border-gray-100">
             <div className="flex gap-2">
               <button
@@ -381,7 +410,7 @@ export default function FlagDetailPage() {
 
         {/* Settings Tab */}
         {activeTab === 'settings' && (
-          <div className="space-y-6">
+          <div ref={contentRef} className="space-y-6">
             {/* Flag Status Card */}
             <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100">
               <div className="flex items-center justify-between mb-6">
@@ -531,7 +560,10 @@ export default function FlagDetailPage() {
                   ) : (
                     <div className="space-y-6">
                       {targeting.rules.map((rule, ruleIndex) => (
-                        <div key={rule.id} className="bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200 rounded-xl p-6 space-y-5 hover:border-[#0066FF]/30 transition-all">
+                        <div key={rule.id} className="targeting-rule-card bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200 rounded-xl p-6 space-y-5 hover:border-[#0066FF]/30 transition-all"
+                          onMouseEnter={(e) => cardHover(e.currentTarget)}
+                          onMouseLeave={(e) => cardHoverEnd(e.currentTarget)}
+                        >
                           <div className="flex items-start justify-between">
                             <div className="flex-1 space-y-5">
                               {/* Rule Description */}

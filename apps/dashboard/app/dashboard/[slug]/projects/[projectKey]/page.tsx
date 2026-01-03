@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth, db } from '@/lib/firebase';
 import { useRouter, useParams } from 'next/navigation';
@@ -8,6 +8,7 @@ import { collection, query, where, getDocs, doc, updateDoc } from 'firebase/fire
 import { COLLECTIONS, createFeatureFlag, createAuditLog } from '@/lib/firestore';
 import toast from 'react-hot-toast';
 import DashboardNav from '@/components/DashboardNav';
+import { fadeIn, slideInBottom, staggerFadeIn, scaleIn, cardHover, cardHoverEnd } from '@/lib/animations';
 
 interface Project {
   id: string;
@@ -70,6 +71,10 @@ export default function ProjectPage() {
     defaultValue: false,
   });
   const [creating, setCreating] = useState(false);
+
+  // Animation refs
+  const headerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (project) {
@@ -175,7 +180,23 @@ export default function ProjectPage() {
       setCreating(false);
     }
   };
+  // Mount animations
+  useEffect(() => {
+    if (headerRef.current) {
+      fadeIn(headerRef.current, 0);
+    }
+    if (contentRef.current) {
+      slideInBottom(contentRef.current, 200);
+    }
+  }, []);
 
+  // Flags change animation
+  useEffect(() => {
+    const flagCards = document.querySelectorAll('.flag-card');
+    if (flagCards.length > 0) {
+      staggerFadeIn('.flag-card');
+    }
+  }, [flags]);
   const toggleFlag = async (flagId: string, currentValue: boolean) => {
     if (!selectedEnv || !user || !project) return;
 
@@ -283,7 +304,7 @@ export default function ProjectPage() {
           </div>
 
           {/* Header Section */}
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
+          <div ref={headerRef} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Feature Flags</h2>
               <p className="text-gray-600">Manage and control your feature flags</p>
@@ -412,7 +433,7 @@ export default function ProjectPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {flags.map((flag) => {
                 const flagValue = getFlagValue(flag.id);
                 const isEnabled = flagValue?.enabled || false;
@@ -420,7 +441,9 @@ export default function ProjectPage() {
                 return (
                   <div 
                     key={flag.id}
-                    className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#0066FF]/30 cursor-pointer"
+                    className="flag-card group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#0066FF]/30 cursor-pointer"
+                    onMouseEnter={(e) => cardHover(e.currentTarget)}
+                    onMouseLeave={(e) => cardHoverEnd(e.currentTarget)}
                   >
                     {/* Card Header */}
                     <div 

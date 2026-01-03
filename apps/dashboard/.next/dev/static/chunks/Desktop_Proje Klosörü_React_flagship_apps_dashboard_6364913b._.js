@@ -212,7 +212,7 @@ async function createAuditLog(data) {
     });
     // Trigger webhooks asynchronously (don't await to avoid slowing down audit log creation)
     if (data.projectId && data.action) {
-        const { triggerWebhooks, WebhookEvent } = await __turbopack_context__.A("[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/lib/webhooks.ts [app-client] (ecmascript, async loader)");
+        const { triggerWebhooks } = await __turbopack_context__.A("[project]/Desktop/Proje Klosörü/React/flagship/apps/dashboard/lib/webhooks.ts [app-client] (ecmascript, async loader)");
         // Map audit log actions to webhook events
         const eventMap = {
             'FLAG_CREATED': 'flag.created',
