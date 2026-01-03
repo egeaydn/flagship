@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import { db } from '@/lib/firebase';
 import {
@@ -15,6 +15,7 @@ import {
   serverTimestamp,
 } from 'firebase/firestore';
 import { Webhook, WebhookEvent, WebhookProvider } from '@/lib/webhooks';
+import { fadeIn, slideInBottom, staggerFadeIn, cardHover, cardHoverEnd } from '@/lib/animations';
 
 export default function WebhooksPage() {
   const params = useParams();
@@ -24,6 +25,10 @@ export default function WebhooksPage() {
   const [loading, setLoading] = useState(true);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [testingWebhook, setTestingWebhook] = useState<string | null>(null);
+
+  // Animation refs
+  const headerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = 'Webhooks | Flagship';
@@ -67,6 +72,24 @@ export default function WebhooksPage() {
       setLoading(false);
     }
   }
+
+  // Mount animations
+  useEffect(() => {
+    if (headerRef.current) {
+      fadeIn(headerRef.current, 0);
+    }
+    if (contentRef.current) {
+      slideInBottom(contentRef.current, 200);
+    }
+  }, [loading]);
+
+  // Webhooks change animation
+  useEffect(() => {
+    const webhookCards = document.querySelectorAll('.webhook-card');
+    if (webhookCards.length > 0) {
+      staggerFadeIn('.webhook-card');
+    }
+  }, [webhooks]);
 
   async function toggleWebhook(webhookId: string, enabled: boolean) {
     try {
@@ -132,7 +155,7 @@ export default function WebhooksPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
+        <div ref={headerRef} className="flex justify-between items-center mb-6">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Webhooks</h1>
             <p className="text-gray-600 mt-1">
@@ -177,7 +200,7 @@ export default function WebhooksPage() {
           </div>
         </div>
       ) : (
-        <div className="bg-white rounded-lg border overflow-hidden">
+        <div ref={contentRef} className="bg-white rounded-lg border overflow-hidden">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
@@ -200,7 +223,10 @@ export default function WebhooksPage() {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {webhooks.map(webhook => (
-                <tr key={webhook.id}>
+                <tr key={webhook.id} className="webhook-card"
+                  onMouseEnter={(e) => cardHover(e.currentTarget)}
+                  onMouseLeave={(e) => cardHoverEnd(e.currentTarget)}
+                >
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900">
                       {webhook.name}

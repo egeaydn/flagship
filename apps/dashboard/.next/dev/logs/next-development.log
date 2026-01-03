@@ -1,1 +1,41 @@
-[00:00:01.924] Server  LOG      ✓ Ready in 1384ms
+[00:00:02.044] Server  LOG      ✓ Ready in 1464ms
+[00:00:08.009] Server  LOG      ○ Compiling / ...
+[00:00:10.896] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[00:00:13.134] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:02:41.467] Server  LOG      ✓ Compiled in 140ms
+[00:02:49.701] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[00:06:16.055] Server  LOG      ✓ Compiled in 101ms
+[00:06:29.419] Server  LOG      ✓ Compiled in 39ms
+[00:06:41.298] Server  LOG      ✓ Compiled in 47ms
+[00:06:56.437] Server  LOG      ✓ Compiled in 51ms
+[00:07:04.025] Server  LOG      ✓ Compiled in 54ms
+[00:07:13.122] Server  LOG      ✓ Compiled in 64ms
+[00:07:20.714] Server  LOG      ✓ Compiled in 41ms
+[00:07:27.993] Server  LOG      ✓ Compiled in 44ms
+[00:07:31.968] Server  LOG      ✓ Compiled in 46ms
+[00:07:40.712] Server  LOG      ✓ Compiled in 48ms
+[00:09:39.604] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[00:09:50.668] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:09:50.668] Browser LOG     📊 Analytics Query: {"envId":"production","projId":"bay-kemal","slug":"tukiyenin-birinci-partisi-cumhuriyet-halk-partisi"}
+[00:09:50.668] Browser LOG     📊 Analytics Data: []
+[00:09:57.582] Server  ERROR   Node.js fs rename failed after 101 retries with error Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\server-reference-manifest.js.tmp.3istci3cu55' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\server-reference-manifest.js'
+[00:09:57.596] Server  ERROR   C:\Users\tr\Desktop\Proje Klosörü\React\flagship\node_modules\next\dist\lib\fs\rename.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:57.604] Server  ERROR    ⨯ Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\server-reference-manifest.js.tmp.3istci3cu55' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\server-reference-manifest.js'
+[00:09:59.392] Server  ERROR   Node.js fs rename failed after 101 retries with error Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\middleware-build-manifest.js.tmp.xfm9ygtsnu' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\middleware-build-manifest.js'
+[00:09:59.396] Server  ERROR   C:\Users\tr\Desktop\Proje Klosörü\React\flagship\node_modules\next\dist\lib\fs\rename.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:59.398] Server  ERROR    ⨯ Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\middleware-build-manifest.js.tmp.xfm9ygtsnu' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\middleware-build-manifest.js'
+[00:09:59.495] Server  ERROR   Node.js fs rename failed after 101 retries with error Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\static\development\_buildManifest.js.tmp.wi3qbrneg8a' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\static\development\_buildManifest.js'
+[00:09:59.500] Server  ERROR   C:\Users\tr\Desktop\Proje Klosörü\React\flagship\node_modules\next\dist\lib\fs\rename.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:59.502] Server  ERROR   Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\server-reference-manifest.js.tmp.3istci3cu55' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\server-reference-manifest.js'
+[00:09:59.629] Server  ERROR   Node.js fs rename failed after 101 retries with error Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\next-font-manifest.js.tmp.3o69veso09l' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\next-font-manifest.js'
+[00:09:59.820] Server  ERROR   C:\Users\tr\Desktop\Proje Klosörü\React\flagship\node_modules\next\dist\lib\fs\rename.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:59.821] Server  ERROR   Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\next-font-manifest.js.tmp.3o69veso09l' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\next-font-manifest.js'
+[00:09:59.822] Server  ERROR   C:\Users\tr\Desktop\Proje Klosörü\React\flagship\node_modules\next\dist\lib\fs\rename.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:59.823] Server  ERROR    ⨯ "unhandledRejection:" Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\next-font-manifest.js.tmp.3o69veso09l' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\next-font-manifest.js'
+[00:09:59.823] Server  ERROR   C:\Users\tr\Desktop\Proje Klosörü\React\flagship\node_modules\next\dist\lib\fs\rename.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:59.824] Server  ERROR    ⨯ "unhandledRejection: " Error: EPERM: operation not permitted, rename 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\next-font-manifest.js.tmp.3o69veso09l' -> 'C:\Users\tr\Desktop\Proje Klosörü\React\flagship\apps\dashboard\.next\dev\server\next-font-manifest.js'
+[00:13:57.691] Server  LOG      ✓ Compiled in 100ms
+[00:15:07.490] Server  LOG      ✓ Compiled in 85ms
+[00:16:02.448] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[00:19:14.448] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[00:19:20.311] Server  WARN     ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase

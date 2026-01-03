@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth, db } from '@/lib/firebase';
 import { useRouter, useParams } from 'next/navigation';
 import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 import { COLLECTIONS, createProject } from '@/lib/firestore';
+import { fadeIn, slideInBottom, staggerFadeIn, scaleIn, cardHover, cardHoverEnd } from '@/lib/animations';
 
 interface Organization {
   id: string;
@@ -33,12 +34,38 @@ export default function OrganizationPage() {
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [formData, setFormData] = useState({ name: '', key: '', description: '' });
   const [creating, setCreating] = useState(false);
+  
+  // Animation refs
+  const headerRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (organization) {
       document.title = `${organization.name} | Flagship`;
     }
   }, [organization]);
+
+  // Animations on mount
+  useEffect(() => {
+    if (navRef.current) fadeIn(navRef.current, 0);
+    if (headerRef.current) slideInBottom(headerRef.current, 200);
+    if (contentRef.current) fadeIn(contentRef.current, 400);
+    
+    // Animate project cards after data loads
+    setTimeout(() => {
+      staggerFadeIn('.project-card');
+    }, 600);
+  }, []);
+
+  // Animate cards when projects change
+  useEffect(() => {
+    if (projects.length > 0) {
+      setTimeout(() => {
+        staggerFadeIn('.project-card');
+      }, 100);
+    }
+  }, [projects]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -120,6 +147,32 @@ export default function OrganizationPage() {
       .replace(/^-+|-+$/g, '');
   };
 
+  // Mount animations
+  useEffect(() => {
+    if (navRef.current) {
+      fadeIn(navRef.current, 0);
+    }
+    if (headerRef.current) {
+      slideInBottom(headerRef.current, 200);
+    }
+    if (contentRef.current) {
+      slideInBottom(contentRef.current, 400);
+    }
+
+    const projectCards = document.querySelectorAll('.project-card');
+    if (projectCards.length > 0) {
+      staggerFadeIn('.project-card');
+    }
+  }, []);
+
+  // Projects change animation
+  useEffect(() => {
+    const projectCards = document.querySelectorAll('.project-card');
+    if (projectCards.length > 0) {
+      staggerFadeIn('.project-card');
+    }
+  }, [projects]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -135,7 +188,7 @@ export default function OrganizationPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Modern Top Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50">
+      <nav ref={navRef} className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3 sm:space-x-4">
@@ -167,7 +220,7 @@ export default function OrganizationPage() {
       <main className="max-w-7xl mx-auto py-8 sm:px-6 lg:px-8">
         <div className="px-4 sm:px-0">
           {/* Header Section */}
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
+          <div ref={headerRef} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Projects</h2>
               <p className="text-gray-600">Manage your feature flag projects</p>
@@ -281,12 +334,14 @@ export default function OrganizationPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project) => (
                 <div
                   key={project.id}
                   onClick={() => router.push(`/dashboard/${slug}/projects/${project.key}`)}
-                  className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#0066FF]/30 cursor-pointer"
+                  onMouseEnter={(e) => cardHover(e.currentTarget)}
+                  onMouseLeave={(e) => cardHoverEnd(e.currentTarget)}
+                  className="project-card group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#0066FF]/30 cursor-pointer"
                 >
                   {/* Card Header with Gradient */}
                   <div className="h-2 bg-gradient-to-r from-[#0066FF] to-[#00B8D4]"></div>

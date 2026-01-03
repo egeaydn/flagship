@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { getAuditLogs } from '@/lib/firestore';
+import { fadeIn, slideInBottom, staggerFadeIn } from '@/lib/animations';
 
 interface AuditLog {
   id: string;
@@ -29,6 +30,11 @@ export default function AuditLogsPage() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Animation refs
+  const headerRef = useRef<HTMLDivElement>(null);
+  const filtersRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = 'Audit Logs | Flagship';
@@ -60,6 +66,27 @@ export default function AuditLogsPage() {
       setLoading(false);
     }
   }
+
+  // Mount animations
+  useEffect(() => {
+    if (headerRef.current) {
+      fadeIn(headerRef.current, 0);
+    }
+    if (filtersRef.current) {
+      slideInBottom(filtersRef.current, 200);
+    }
+    if (contentRef.current) {
+      slideInBottom(contentRef.current, 400);
+    }
+  }, [loading]);
+
+  // Logs change animation
+  useEffect(() => {
+    const logRows = document.querySelectorAll('.audit-log-row');
+    if (logRows.length > 0) {
+      staggerFadeIn('.audit-log-row');
+    }
+  }, [logs, filter, searchTerm]);
 
   function formatDate(timestamp: any) {
     if (!timestamp) return 'N/A';
@@ -114,7 +141,7 @@ export default function AuditLogsPage() {
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-6">
+        <div ref={headerRef} className="mb-6">
           <h1 className="text-3xl font-bold text-gray-900">📋 Audit Logs</h1>
           <p className="text-gray-600 mt-2">
             Track all changes and activities in your organization
@@ -122,7 +149,7 @@ export default function AuditLogsPage() {
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-lg shadow p-4 mb-6">
+        <div ref={filtersRef} className="bg-white rounded-lg shadow p-4 mb-6">
           <div className="flex gap-4 flex-wrap">
             <div className="flex-1 min-w-[200px]">
               <input
@@ -158,10 +185,10 @@ export default function AuditLogsPage() {
             </p>
           </div>
         ) : (
-          <div className="bg-white rounded-lg shadow overflow-hidden">
+          <div ref={contentRef} className="bg-white rounded-lg shadow overflow-hidden">
             <div className="divide-y divide-gray-200">
               {filteredLogs.map((log) => (
-                <div key={log.id} className="p-6 hover:bg-gray-50 transition-colors">
+                <div key={log.id} className="audit-log-row p-6 hover:bg-gray-50 transition-colors">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       {/* Action & Resource */}

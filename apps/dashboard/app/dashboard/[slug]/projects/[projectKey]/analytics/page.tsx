@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { getAggregatedAnalytics } from '@/lib/firestore';
+import { fadeIn, slideInBottom, staggerFadeIn } from '@/lib/animations';
 
 interface FlagAnalytics {
   flagKey: string;
@@ -27,6 +28,11 @@ export default function AnalyticsPage() {
   const [environmentId, setEnvironmentId] = useState<string>('');
   const [autoRefresh, setAutoRefresh] = useState(false);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+
+  // Animation refs
+  const headerRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = 'Analytics | Flagship';
@@ -90,6 +96,27 @@ export default function AnalyticsPage() {
     }
   }
 
+  // Mount animations
+  useEffect(() => {
+    if (headerRef.current) {
+      fadeIn(headerRef.current, 0);
+    }
+    if (statsRef.current) {
+      slideInBottom(statsRef.current, 200);
+    }
+    if (contentRef.current) {
+      slideInBottom(contentRef.current, 400);
+    }
+  }, [loading]);
+
+  // Analytics cards animation
+  useEffect(() => {
+    const cards = document.querySelectorAll('.analytics-card');
+    if (cards.length > 0) {
+      staggerFadeIn('.analytics-card');
+    }
+  }, [analytics]);
+
   function getUsagePercentage(trueCount: number, falseCount: number) {
     const total = trueCount + falseCount;
     if (total === 0) return 0;
@@ -114,7 +141,7 @@ export default function AnalyticsPage() {
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-6">
+        <div ref={headerRef} className="mb-6">
           <div className="flex items-center justify-between">
             <div>
               <Link 
@@ -173,7 +200,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -220,7 +247,7 @@ export default function AnalyticsPage() {
             </p>
           </div>
         ) : (
-          <div className="bg-white rounded-lg shadow overflow-hidden">
+          <div ref={contentRef} className="bg-white rounded-lg shadow overflow-hidden">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
@@ -254,7 +281,7 @@ export default function AnalyticsPage() {
                       : 0;
 
                     return (
-                      <tr key={item.flagKey} className="hover:bg-gray-50">
+                      <tr key={item.flagKey} className="analytics-card hover:bg-gray-50">
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="text-sm font-medium text-gray-900">
