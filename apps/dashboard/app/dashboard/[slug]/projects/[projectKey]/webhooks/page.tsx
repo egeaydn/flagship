@@ -153,12 +153,12 @@ export default function WebhooksPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
       <div className="max-w-7xl mx-auto">
         <div ref={headerRef} className="flex justify-between items-center mb-6">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Webhooks</h1>
-            <p className="text-gray-600 mt-1">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Webhooks</h1>
+            <p className="text-gray-600 dark:text-gray-300 mt-1">
               Get notified when flags change
             </p>
           </div>

@@ -7,6 +7,7 @@ import { useRouter, useParams } from 'next/navigation';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { COLLECTIONS, createApiKey, revokeApiKey, getEnvironmentApiKeys } from '@/lib/firestore';
 import { fadeIn, slideInBottom, staggerFadeIn, cardHover, cardHoverEnd } from '@/lib/animations';
+import ThemeToggle from '@/components/ThemeToggle';
 
 interface Project {
   id: string;
@@ -192,21 +193,22 @@ export default function ApiKeysPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white shadow">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <nav className="bg-white dark:bg-gray-800 shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => router.push(`/dashboard/${slug}/projects/${projectKey}`)}
-                className="text-gray-600 hover:text-gray-900"
+                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
               >
                 ← Geri
               </button>
-              <h1 className="text-xl font-bold text-gray-900">{project.name} - API Keys</h1>
+              <h1 className="text-xl font-bold text-gray-900 dark:text-white">{project.name} - API Keys</h1>
             </div>
             <div className="flex items-center space-x-4">
-              <span className="text-gray-700">{user?.email}</span>
+              <ThemeToggle />
+              <span className="text-gray-700 dark:text-gray-300">{user?.email}</span>
             </div>
           </div>
         </div>
@@ -236,7 +238,7 @@ export default function ApiKeysPage() {
 
           {/* Header */}
           <div ref={headerRef} className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">API Keys</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">API Keys</h2>
             <button
               onClick={() => setShowCreateForm(!showCreateForm)}
               disabled={!!generatedKey}

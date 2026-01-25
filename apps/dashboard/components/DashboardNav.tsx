@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 interface DashboardNavProps {
   user?: {
@@ -106,7 +107,7 @@ export default function DashboardNav({ user, organization, project }: DashboardN
   return (
     <>
       {/* Top Navigation Bar */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50">
+      <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Left Section - Logo & Breadcrumbs */}
@@ -114,7 +115,7 @@ export default function DashboardNav({ user, organization, project }: DashboardN
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+                className="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -139,10 +140,10 @@ export default function DashboardNav({ user, organization, project }: DashboardN
               <div className="hidden md:flex items-center space-x-2 text-sm">
                 {organization && (
                   <>
-                    <span className="text-gray-400">/</span>
+                    <span className="text-gray-400 dark:text-gray-500">/</span>
                     <Link 
                       href={`/dashboard/${organization.slug}`}
-                      className="text-gray-600 hover:text-[#0066FF] transition-colors font-medium truncate max-w-[150px]"
+                      className="text-gray-600 dark:text-gray-300 hover:text-[#0066FF] dark:hover:text-[#3385FF] transition-colors font-medium truncate max-w-[150px]"
                     >
                       {organization.name}
                     </Link>
@@ -150,10 +151,10 @@ export default function DashboardNav({ user, organization, project }: DashboardN
                 )}
                 {project && (
                   <>
-                    <span className="text-gray-400">/</span>
+                    <span className="text-gray-400 dark:text-gray-500">/</span>
                     <Link
                       href={`/dashboard/${organization?.slug}/projects/${project.key}`}
-                      className="text-gray-600 hover:text-[#0066FF] transition-colors font-medium truncate max-w-[150px]"
+                      className="text-gray-600 dark:text-gray-300 hover:text-[#0066FF] dark:hover:text-[#3385FF] transition-colors font-medium truncate max-w-[150px]"
                     >
                       {project.name}
                     </Link>
@@ -164,10 +165,13 @@ export default function DashboardNav({ user, organization, project }: DashboardN
 
             {/* Right Section - User Menu */}
             <div className="flex items-center space-x-3">
+              {/* Theme Toggle */}
+              <ThemeToggle />
+
               {/* User Info */}
-              <div className="hidden sm:flex items-center space-x-2 px-3 py-1.5 bg-gradient-to-r from-[#0066FF]/10 to-[#00B8D4]/10 rounded-lg">
+              <div className="hidden sm:flex items-center space-x-2 px-3 py-1.5 bg-gradient-to-r from-[#0066FF]/10 to-[#00B8D4]/10 dark:from-[#0066FF]/20 dark:to-[#00B8D4]/20 rounded-lg">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-gray-700 truncate max-w-[150px]">
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-300 truncate max-w-[150px]">
                   {user?.email}
                 </span>
               </div>
@@ -193,11 +197,11 @@ export default function DashboardNav({ user, organization, project }: DashboardN
       {sidebarOpen && (
         <div className="lg:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm" onClick={() => setSidebarOpen(false)}>
           <div 
-            className="fixed inset-y-0 left-0 w-64 bg-white shadow-xl p-6 animate-fadeIn"
+            className="fixed inset-y-0 left-0 w-64 bg-white dark:bg-gray-900 shadow-xl p-6 animate-fadeIn"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-lg font-bold text-gray-900">Navigation</h2>
+              <h2 className="text-lg font-bold text-gray-900 dark:text-white">Navigation</h2>
               <button
                 onClick={() => setSidebarOpen(false)}
                 className="text-gray-400 hover:text-gray-600 transition-colors"

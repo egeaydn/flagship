@@ -27,6 +27,20 @@
   --warning: #F59E0B;
   --error: #EF4444;
   --info: #3B82F6;
+}
+
+/* Dark Mode Variables */
+.dark {
+  --background: #0F172A;
+  --card-bg: #1E293B;
+  --sidebar-bg: #0F172A;
+  
+  --foreground: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-light: #64748B;
+  
+  --border: #334155;
+  --border-light: #1E293B;
   
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #0066FF 0%, #003D99 100%);

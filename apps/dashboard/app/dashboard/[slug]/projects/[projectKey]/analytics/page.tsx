@@ -138,7 +138,7 @@ export default function AnalyticsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div ref={headerRef} className="mb-6">
@@ -150,8 +150,8 @@ export default function AnalyticsPage() {
               >
                 ← Back to Project
               </Link>
-              <h1 className="text-3xl font-bold text-gray-900">📊 Analytics Dashboard</h1>
-              <p className="text-gray-600 mt-2">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">📊 Analytics Dashboard</h1>
+              <p className="text-gray-600 dark:text-gray-300 mt-2">
                 Flag usage and performance metrics
               </p>
               {lastUpdated && (

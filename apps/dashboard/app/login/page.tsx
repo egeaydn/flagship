@@ -56,7 +56,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#001F4D] via-[#003D99] to-[#0066FF] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#001F4D] via-[#003D99] to-[#0066FF] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center p-4">
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 -top-48 -left-48 bg-[#0066FF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>

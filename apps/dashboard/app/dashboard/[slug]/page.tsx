@@ -7,6 +7,7 @@ import { useRouter, useParams } from 'next/navigation';
 import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 import { COLLECTIONS, createProject } from '@/lib/firestore';
 import { fadeIn, slideInBottom, staggerFadeIn, scaleIn, cardHover, cardHoverEnd } from '@/lib/animations';
+import ThemeToggle from '@/components/ThemeToggle';
 
 interface Organization {
   id: string;
@@ -186,31 +187,32 @@ export default function OrganizationPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Modern Top Navigation */}
-      <nav ref={navRef} className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50">
+      <nav ref={navRef} className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3 sm:space-x-4">
               <button
                 onClick={() => router.push('/dashboard')}
-                className="flex items-center text-gray-600 hover:text-[#0066FF] transition-colors text-sm sm:text-base font-medium"
+                className="flex items-center text-gray-600 dark:text-gray-300 hover:text-[#0066FF] dark:hover:text-[#3385FF] transition-colors text-sm sm:text-base font-medium"
               >
                 <span className="mr-2">←</span>
                 <span className="hidden sm:inline">Dashboard</span>
               </button>
-              <div className="h-8 w-px bg-gray-300"></div>
+              <div className="h-8 w-px bg-gray-300 dark:bg-gray-600"></div>
               <div>
                 <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-[#0066FF] to-[#00B8D4] bg-clip-text text-transparent">
                   {organization.name}
                 </h1>
-                <p className="text-xs text-gray-500">Organization</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Organization</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <div className="hidden sm:flex items-center space-x-2 px-3 py-1.5 bg-gradient-to-r from-[#0066FF]/10 to-[#00B8D4]/10 rounded-lg">
+              <ThemeToggle />
+              <div className="hidden sm:flex items-center space-x-2 px-3 py-1.5 bg-gradient-to-r from-[#0066FF]/10 to-[#00B8D4]/10 dark:from-[#0066FF]/20 dark:to-[#00B8D4]/20 rounded-lg">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-gray-700">{user?.email}</span>
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">{user?.email}</span>
               </div>
             </div>
           </div>
@@ -222,8 +224,8 @@ export default function OrganizationPage() {
           {/* Header Section */}
           <div ref={headerRef} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Projects</h2>
-              <p className="text-gray-600">Manage your feature flag projects</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Projects</h2>
+              <p className="text-gray-600 dark:text-gray-300">Manage your feature flag projects</p>
             </div>
             <button
               onClick={() => setShowCreateForm(!showCreateForm)}

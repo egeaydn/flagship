@@ -138,12 +138,12 @@ export default function AuditLogsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div ref={headerRef} className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900">📋 Audit Logs</h1>
-          <p className="text-gray-600 mt-2">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">📋 Audit Logs</h1>
+          <p className="text-gray-600 dark:text-gray-300 mt-2">
             Track all changes and activities in your organization
           </p>
         </div>

@@ -273,7 +273,7 @@ export default function ProjectPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Dashboard Navigation */}
       <DashboardNav 
         user={user}
@@ -306,8 +306,8 @@ export default function ProjectPage() {
           {/* Header Section */}
           <div ref={headerRef} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Feature Flags</h2>
-              <p className="text-gray-600">Manage and control your feature flags</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Feature Flags</h2>
+              <p className="text-gray-600 dark:text-gray-300">Manage and control your feature flags</p>
             </div>
             <button
               onClick={() => setShowCreateForm(!showCreateForm)}

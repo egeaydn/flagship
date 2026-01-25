@@ -9,6 +9,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import toast from 'react-hot-toast';
 import { fadeIn, slideInBottom, staggerFadeIn, scaleIn, cardHover, cardHoverEnd } from '@/lib/animations';
+import ThemeToggle from '@/components/ThemeToggle';
 
 interface TargetingCondition {
   attribute: string;
@@ -294,10 +295,10 @@ export default function FlagDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 mx-auto mb-4 border-4 border-[#0066FF] border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-gray-600 font-medium">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-300 font-medium">Loading...</p>
         </div>
       </div>
     );
@@ -306,15 +307,15 @@ export default function FlagDetailPage() {
   if (!flag) return null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Modern Top Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50">
+      <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => router.push(`/dashboard/${params.slug}/projects/${params.projectKey}`)}
-                className="flex items-center space-x-2 text-gray-600 hover:text-[#0066FF] transition-colors"
+                className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-[#0066FF] dark:hover:text-[#3385FF] transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -323,8 +324,9 @@ export default function FlagDetailPage() {
               </button>
             </div>
             <div className="flex items-center space-x-3">
-              <div className="px-3 py-1.5 bg-gradient-to-r from-[#0066FF]/10 to-[#00B8D4]/10 rounded-lg">
-                <span className="text-xs font-medium text-gray-700">Flag Details</span>
+              <ThemeToggle />
+              <div className="px-3 py-1.5 bg-gradient-to-r from-[#0066FF]/10 to-[#00B8D4]/10 dark:from-[#0066FF]/20 dark:to-[#00B8D4]/20 rounded-lg">
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Flag Details</span>
               </div>
             </div>
           </div>

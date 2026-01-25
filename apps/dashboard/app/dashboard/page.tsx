@@ -6,6 +6,7 @@ import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 import { getUserOrganizations, createOrganization } from '@/lib/firestore';
 import { fadeIn, staggerFadeIn, scaleIn, slideInBottom, cardHover, cardHoverEnd, buttonRipple } from '@/lib/animations';
+import ThemeToggle from '@/components/ThemeToggle';
 
 interface Organization {
   id: string;
@@ -114,16 +115,16 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-gray-600">Yükleniyor...</div>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+        <div className="text-gray-600 dark:text-gray-300">Yükleniyor...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Modern Top Navigation */}
-      <nav ref={navRef} className="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-50 opacity-0">
+      <nav ref={navRef} className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 opacity-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
@@ -136,13 +137,16 @@ export default function DashboardPage() {
                 <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-[#0066FF] to-[#00B8D4] bg-clip-text text-transparent">
                   Flagship
                 </h1>
-                <p className="text-xs text-gray-500">Feature Flags Platform</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Feature Flags Platform</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <div className="hidden sm:flex items-center space-x-2 px-3 py-1.5 bg-gradient-to-r from-[#0066FF]/10 to-[#00B8D4]/10 rounded-lg">
+              {/* Theme Toggle */}
+              <ThemeToggle />
+              
+              <div className="hidden sm:flex items-center space-x-2 px-3 py-1.5 bg-gradient-to-r from-[#0066FF]/10 to-[#00B8D4]/10 dark:from-[#0066FF]/20 dark:to-[#00B8D4]/20 rounded-lg">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-gray-700 truncate max-w-[150px]">{user?.email}</span>
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-300 truncate max-w-[150px]">{user?.email}</span>
               </div>
               <button
                 onClick={(e) => {
@@ -178,8 +182,8 @@ export default function DashboardPage() {
           {/* Header Section */}
           <div ref={contentRef} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8 opacity-0">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Organizations</h2>
-              <p className="text-gray-600">Select or create an organization to get started</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Organizations</h2>
+              <p className="text-gray-600 dark:text-gray-300">Select or create an organization to get started</p>
             </div>
             <button
               onClick={() => setShowCreateForm(!showCreateForm)}
